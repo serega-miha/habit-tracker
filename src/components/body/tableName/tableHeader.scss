@@ -1,0 +1,34 @@
+
+.habits__row-name{
+    display: flex;
+    text-align: center;
+    
+}
+
+.habits__need{
+    text-align: center;
+    width: 90px;
+    margin: 0px 20px 0px 0px;
+    
+}
+.habits__name{
+    width: 140px;
+}
+
+.habits__list-days{
+    display: grid;
+    grid-template-columns: repeat(30,1fr);
+    gap: 12px;
+    padding: 0px 20px;
+}
+
+.list-day{
+
+}
+
+.block-empty{
+    border: 1px solid black;
+
+    border-radius: 15px;
+    padding: 10px;
+}

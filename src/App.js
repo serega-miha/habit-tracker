@@ -1,5 +1,6 @@
 
 import './App.scss';
+import BodyBlock from './components/body/BodyBlock';
  import HeaderBlock from './components/header/HeaderBlock';
 
 
@@ -10,7 +11,7 @@ function App() {
           <HeaderBlock/>
       </header>
       <main className='body'>
-        <h2>Body</h2>
+          <BodyBlock/>
       </main>
       <footer className='footer'>
         <h2>Footer</h2>

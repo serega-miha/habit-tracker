@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+import { days, months } from '../../../dataBase/daysMonths/daysAndMonths';
 
 
 
@@ -18,23 +18,26 @@ class BlockTime extends Component {
         componentWillUnmount(){
             clearInterval(this.timer)
         }
-    
-    months=[
-        'Янв',
-        'Фев',
-        'Мар',
-        'Апр',
-        'Май',
-        'Июн',
-        'Июл',
-        'Авг',
-        'Сен',
-        'Окт',
-        'Ноя',
-        'Дек',
-        ];
 
-    days =['Пн','Вт','Ср','Чт','Пт','Сб','Вс']
+        months=months;
+        days=days;
+    
+    // months=[
+    //     'Янв',
+    //     'Фев',
+    //     'Мар',
+    //     'Апр',
+    //     'Май',
+    //     'Июн',
+    //     'Июл',
+    //     'Авг',
+    //     'Сен',
+    //     'Окт',
+    //     'Ноя',
+    //     'Дек',
+    //     ];
+
+    // days =['Пн','Вт','Ср','Чт','Пт','Сб','Вс']
 
     render(){
         const {date} = this.state;
@@ -43,7 +46,7 @@ class BlockTime extends Component {
         return(
             <div className="block-time">
                 
-                {date.getDate()} {this.months[date.getMonth()]} {this.days[date.getDay()]}
+                {date.getDate()} {this.months[date.getMonth()]} {this.days[date.getDay()-1]}
                 <br></br>
                 {date.toLocaleTimeString()}
                 
