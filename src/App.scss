@@ -1,0 +1,28 @@
+@import './style/var.scss';
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  
+}
+.header{
+  background-color: $dark;
+}
+
+
+
+
+.body{
+  background-color: $medium;
+  flex: 1 1 auto;
+
+
+}
+.footer{
+ 
+  background-color: $light;
+ 
+}
+
