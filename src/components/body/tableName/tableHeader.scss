@@ -2,33 +2,53 @@
 .habits__row-name{
     display: flex;
     text-align: center;
+    align-items: center;
+    margin: 0px 0px 10px 0px;
+    
     
 }
 
 .habits__need{
     text-align: center;
-    width: 90px;
-    margin: 0px 20px 0px 0px;
+    max-width: 90px;
+    margin: 0px 10px 0px 0px;
+    font-size: 1.6vmin;
+    padding: 1vmin;
+   
     
 }
 .habits__name{
     width: 140px;
+    font-size: 1.6vmin;
+    padding: 1vmin
 }
 
 .habits__list-days{
     display: grid;
-    grid-template-columns: repeat(30,1fr);
-    gap: 12px;
-    padding: 0px 20px;
+    grid-template-columns: repeat(31,30px);
+    gap: 5px;
+    padding: 0px 7px;
+    li{
+        min-width: 25px;
+
+    }
 }
 
 .list-day{
+    font-size: 1.4vmin;
+    padding: 0.8vmin;
+    position: relative;
+    border: 0px solid rgb(0, 0, 0);
 
 }
-
+.habits__percent{
+    font-size: 1.4vmin;
+    padding: 1vmin
+}
 .block-empty{
-    border: 1px solid black;
+    // border: 1px solid rgb(0, 0, 0);
 
     border-radius: 15px;
-    padding: 10px;
+
+    
 }

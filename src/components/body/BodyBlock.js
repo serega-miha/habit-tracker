@@ -1,5 +1,7 @@
 import './bodyBlock.scss'
 import TableHeader from './tableName/TableHeader';
+import TableHabits from './tableHabits/TableHabits';
+import CheckBox from './checkBox/checkBox';
 
 
 const BodyBlock = () => {
@@ -8,8 +10,9 @@ const BodyBlock = () => {
             <h2>Body</h2>
             <div className="habits__table">
                 <TableHeader/>
-                <div className="habits__table-body"></div>
+                <TableHabits/>
             </div>
+          
 
         </div>
     )
