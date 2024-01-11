@@ -21,11 +21,11 @@ const CheckBox = (props) => {
     }
 
     return (
-        <div className={newClass} data-patern={status}>
+        <button className={newClass} disabled={props.disable} >
 
             <div id="tick_mark2"></div>
             <div id="tick_mark3"></div>
-        </div>
+        </button>
 
     )
 

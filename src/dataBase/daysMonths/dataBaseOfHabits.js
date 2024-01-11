@@ -1,8 +1,8 @@
 
 
-export const dataBaseOfHabits = [
-    {id: 1, count: 6, nameHabit: 'somthing', startDate: '2024-01-05', 
-results: [{day: 1, status: 0},
+export const dataBaseOfHabits = {
+    data:[{id: 1, count: 6, nameHabit: 'somthing', startDate: '2024-01-05', 
+results: [{day: 1, status: 2},
           {day: 2, status: 0},
           {day: 3, status: 1},
           {day: 4, status: 0},
@@ -35,7 +35,7 @@ results: [{day: 1, status: 0},
           {day: 31, status: 0},        
 ]
 },
-{id: 2, count: 7, nameHabit: 'sport', startDate: '2024-01-08', 
+{id: 2, count: 7, nameHabit: 'sport', startDate: '2024-01-08',  
 results: [{day: 1, status: 0},
     {day: 2, status: 1},
     {day: 3, status: 0},
@@ -69,4 +69,6 @@ results: [{day: 1, status: 0},
     {day: 31, status: 0},        
 ]
 }
-];
+    ]
+}
+    

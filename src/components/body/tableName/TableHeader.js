@@ -1,6 +1,6 @@
 import './tableHeader.scss'
 import { days, months } from '../../../dataBase/daysMonths/daysAndMonths';
-import { dataBaseOfHabits } from '../../../dataBase/daysMonths/dataBaseOfHabits';
+
 
 
 const TableHeader = () => {
@@ -46,38 +46,10 @@ const TableHeader = () => {
     // console.log(data[2].status);
 
 
-    function renderHabits(arr) {
-        const habitRow = arr.map((item, i) => {
-            const habitDaysArr = item.results;
-            const habitDays = habitDaysArr.map((el, i) => {
-                
-                return (
-                    <li key={i} className="list-day block-empty">{el.status}</li>
-                )
-            })
-            return (
-                <div className="habits__row-name" key={item.id}>
-                    <div className="habits__need block-empty">{item.count}</div>
-                    <div className="habits__name block-empty">{item.nameHabit}</div>
-                    <ul className="habits__list-days ">
-                        {habitDays}
-                    </ul>
-
-                    <div className="habits__percent block-empty">% исполнения</div>
-                </div>
-            )
-        })
-        return habitRow
-    }
-
-
-
-
-
 
 
     const itemsDays = renderItems(createArr(firstDayofMonth, countDaysOfMonth))
-    const habitRow = renderHabits(dataBaseOfHabits)
+    
 
 
     return (

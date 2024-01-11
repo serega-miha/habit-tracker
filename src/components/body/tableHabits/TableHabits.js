@@ -1,5 +1,5 @@
 import './tableHabits.scss'
-import { days, months } from '../../../dataBase/daysMonths/daysAndMonths';
+
 import { dataBaseOfHabits } from '../../../dataBase/daysMonths/dataBaseOfHabits';
 import CheckBox from '../checkBox/checkBox';
 import { useState } from 'react';
@@ -7,12 +7,11 @@ import { useState } from 'react';
 
 
 const TableHabits = () => {
-    const [dataBase, setDataBase] = useState(dataBaseOfHabits)
+    const [dataBase, setDataBase] = useState(dataBaseOfHabits.data)
+    // console.log(dataBase);
 
     const onChangeStatus = (numDataBase, numDataBaseResults) => {
-     
         const status = dataBase[numDataBase].results[numDataBaseResults].status;
-        
         let newStatus;
         switch (status) {
             case 0:
@@ -31,7 +30,37 @@ const TableHabits = () => {
                 newStatus = 0;
                 break
         }
-        // const newArr = dataBase.map((item, i) => (
+        const dataBaseItem = dataBase[numDataBase];
+        const habitList = dataBaseItem.results;
+        
+        // console.log(habitList); 
+        const newHabitList = habitList.map((item) => {
+            if (item.day === numDataBaseResults + 1){
+                return {
+                    ...item,
+                    status: newStatus
+                }
+            } else {
+                return item;
+            }
+        })
+        // console.log(newHabitList);
+        const newDataBaseItem = {
+            ...dataBaseItem,
+            results: newHabitList
+        }
+        const newDataBase = dataBase.map((item, i) => {
+            if (i === numDataBase){
+                return newDataBaseItem
+            } else {
+                return item
+            }
+        })
+        setDataBase(newDataBase);
+     
+    
+
+                // const newArr = dataBase.map((item, i) => (
         //     i === numDataBase
         //     ? {...item, item.results[numDataBaseResults].status : newStatus}
         //     : item
@@ -65,7 +94,6 @@ const TableHabits = () => {
         })
         return habitRow
     }
-
 
 
 
