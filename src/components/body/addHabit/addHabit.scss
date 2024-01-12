@@ -1,0 +1,23 @@
+@import '../../../style/var.scss';
+
+.add__habit-container{
+    margin: 30px 20px;
+    
+}
+
+.add__habit{
+    display: flex;
+    align-items: center;
+
+    label{
+        display: block;
+        max-width: 100px;
+        color: $light;
+        padding: 5px;
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+    input{
+        height: 20px;
+    }
+}

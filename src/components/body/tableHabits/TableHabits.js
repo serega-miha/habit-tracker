@@ -1,15 +1,36 @@
 import './tableHabits.scss'
 
-import { dataBaseOfHabits } from '../../../dataBase/daysMonths/dataBaseOfHabits';
 import CheckBox from '../checkBox/checkBox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import JsonBin from '../../../service/request/JsonBin';
 
 
 
 const TableHabits = () => {
-    const [dataBase, setDataBase] = useState(dataBaseOfHabits.data)
-    // console.log(dataBase);
+    const [dataBase, setDataBase] = useState([])
 
+
+    const today = new Date();
+    const countDaysOfMonth = 32 - new Date(today.getFullYear(), today.getMonth(), 32).getDate();
+    const request = new JsonBin();
+
+    useEffect(() => {
+        onRequest();
+      
+        console.log(dataBase); 
+    }, [])
+
+    const onRequest = () => {
+        request.getResource()
+            .then(onDataBaseLoaded)
+    }
+
+
+    const onDataBaseLoaded = (dataBase) => {
+        setDataBase(dataBase)
+    }
+
+//функция изменения статуса привычки
     const onChangeStatus = (numDataBase, numDataBaseResults) => {
         const status = dataBase[numDataBase].results[numDataBaseResults].status;
         let newStatus;
@@ -57,28 +78,45 @@ const TableHabits = () => {
             }
         })
         setDataBase(newDataBase);
-     
-    
 
-                // const newArr = dataBase.map((item, i) => (
-        //     i === numDataBase
-        //     ? {...item, item.results[numDataBaseResults].status : newStatus}
-        //     : item
-        // ))
-        // console.log(newArr);
-        // console.log(dataBase);
     }
 
+
+
+
+
+    //рендерин привычек из базы данных
     function renderHabits(arr) {
         const habitRow = arr.map((item, y) => {
             const habitDaysArr = item.results;
             const habitDays = habitDaysArr.map((el, i) => {
 
-                return (
-                    <li key={i} className="list-day block-empty" 
-                    onClick={() => onChangeStatus(y,i)}
-                    ><CheckBox status={el.status}/></li>
-                )
+                while (i <= countDaysOfMonth - 1){
+                   
+                    if (item.startDate.split("-")[2] > i){
+                       
+                        return (
+                            <li key={i} className="list-day block-empty" 
+                            onClick={() => onChangeStatus(y,i)}
+                            ><CheckBox
+                             status={0}
+                             disable={"disabled"}
+                             /></li>
+                        )
+                    } else { 
+                        
+                        
+                        return (
+                            <li key={i} className="list-day block-empty" 
+                            onClick={() => onChangeStatus(y,i)}
+                            ><CheckBox
+                             status={el.status}
+                             date={item.startDate}
+                             disable={""}
+                             /></li>
+                        )
+                    }
+                }
             })
             return (
                 <div className="habits__row-name" key={item.id}>

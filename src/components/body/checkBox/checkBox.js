@@ -19,9 +19,10 @@ const CheckBox = (props) => {
             newClass = 'mybtn';
             break
     }
+   
 
     return (
-        <button className={newClass} disabled={props.disable} >
+        <button className={newClass} date={props.date} disabled={props.disable}>
 
             <div id="tick_mark2"></div>
             <div id="tick_mark3"></div>

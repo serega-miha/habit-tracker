@@ -1,7 +1,9 @@
 import './bodyBlock.scss'
 import TableHeader from './tableName/TableHeader';
 import TableHabits from './tableHabits/TableHabits';
-import CheckBox from './checkBox/checkBox';
+import AddHabit from './addHabit/AddHabit';
+import YocReactDatePicker from './calendar/Calendar';
+
 
 
 const BodyBlock = () => {
@@ -12,8 +14,8 @@ const BodyBlock = () => {
                 <TableHeader/>
                 <TableHabits/>
             </div>
+            <AddHabit/>
           
-
         </div>
     )
 }

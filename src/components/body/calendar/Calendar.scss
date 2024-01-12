@@ -1,0 +1,11 @@
+@import '../../../style/var.scss';
+
+
+tbody{
+    background-color: $grey;
+}
+
+.picker-input__text{
+    text-align: center;
+    border-radius: 10px;
+}

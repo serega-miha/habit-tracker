@@ -8,7 +8,7 @@ const TableHeader = () => {
     const today = new Date();
 
     //количество дней в месяце
-    const countDaysOfMonth = 32 - new Date(2024, 0, 32).getDate();
+    const countDaysOfMonth = 32 - new Date(today.getFullYear(), today.getMonth(), 32).getDate();
 
     //первый день в месяце
     const firstDayofMonth = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
