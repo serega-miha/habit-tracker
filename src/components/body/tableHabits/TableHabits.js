@@ -1,38 +1,23 @@
 import './tableHabits.scss'
 
 import CheckBox from '../checkBox/checkBox';
-import { useEffect, useState } from 'react';
-import JsonBin from '../../../service/request/JsonBin';
+import { today, countDaysOfMonth } from '../../../dataBase/daysMonths/daysAndMonths';
 
 
 
-const TableHabits = () => {
-    const [dataBase, setDataBase] = useState([])
+const TableHabits = (props) => {
+   
 
+    // const today = new Date();
+    // const countDaysOfMonth = 32 - new Date(today.getFullYear(), today.getMonth(), 32).getDate();
+ 
 
-    const today = new Date();
-    const countDaysOfMonth = 32 - new Date(today.getFullYear(), today.getMonth(), 32).getDate();
-    const request = new JsonBin();
+   
 
-    useEffect(() => {
-        onRequest();
-      
-        console.log(dataBase); 
-    }, [])
-
-    const onRequest = () => {
-        request.getResource()
-            .then(onDataBaseLoaded)
-    }
-
-
-    const onDataBaseLoaded = (dataBase) => {
-        setDataBase(dataBase)
-    }
-
+    
 //функция изменения статуса привычки
     const onChangeStatus = (numDataBase, numDataBaseResults) => {
-        const status = dataBase[numDataBase].results[numDataBaseResults].status;
+        const status = props.dataBase[numDataBase].results[numDataBaseResults].status;
         let newStatus;
         switch (status) {
             case 0:
@@ -51,7 +36,7 @@ const TableHabits = () => {
                 newStatus = 0;
                 break
         }
-        const dataBaseItem = dataBase[numDataBase];
+        const dataBaseItem = props.dataBase[numDataBase];
         const habitList = dataBaseItem.results;
         
         // console.log(habitList); 
@@ -70,14 +55,14 @@ const TableHabits = () => {
             ...dataBaseItem,
             results: newHabitList
         }
-        const newDataBase = dataBase.map((item, i) => {
+        const newDataBase = props.dataBase.map((item, i) => {
             if (i === numDataBase){
                 return newDataBaseItem
             } else {
                 return item
             }
         })
-        setDataBase(newDataBase);
+        props.onChangeDataBase(newDataBase);
 
     }
 
@@ -138,7 +123,7 @@ const TableHabits = () => {
 
 
 
-    const habitRow = renderHabits(dataBase)
+    const habitRow = renderHabits(props.dataBase)
 
     return (
         <div className="habits__table-body">

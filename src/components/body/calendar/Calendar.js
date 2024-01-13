@@ -1,12 +1,14 @@
 import React from "react";
-import { DatePicker, RangeDatePicker } from "@y0c/react-datepicker";
+import { DatePicker } from "@y0c/react-datepicker";
 import "@y0c/react-datepicker/assets/styles/calendar.scss";
 import './Calendar.scss'
 
-const YocReactDatePicker = () => {
+const YocReactDatePicker = (props) => {
   const onChangeValue = (date) => {
-    const dateValue = date.toDate();
-    console.log(dateValue);
+    const dateValue = date;
+
+    const dateString = `${dateValue.$y}-${dateValue.$M + 1}-${dateValue.$D}`
+    props.onGetDate(dateString);
   };
 
 
@@ -21,3 +23,5 @@ const YocReactDatePicker = () => {
 };
 
 export default YocReactDatePicker;
+
+

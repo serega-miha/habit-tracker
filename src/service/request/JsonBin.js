@@ -38,9 +38,9 @@ class JsonBin {
   //         );
   //     })
 
- _url = 'http://localhost:3001/data';
+  _url = 'http://localhost:3001/data';
 
-  getResource = async (url) => {
+  getResource = async () => {
     let res = await fetch(this._url, {
       method: 'GET',
       headers: {
@@ -49,6 +49,28 @@ class JsonBin {
     })
     let response = await res.json();
     return response;
+  }
+
+
+  postResource = async (data) => {
+  
+    try {
+      const rawResponse = await fetch(this._url, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+        
+      })
+      const content = await rawResponse.json()
+      
+      console.log(JSON.stringify(content));
+    } catch (error){
+      console.log(error);
+    }
+    
   }
 
 
