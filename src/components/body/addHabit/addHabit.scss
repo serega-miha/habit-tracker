@@ -8,16 +8,72 @@
 .add__habit{
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: $light;
+    border-radius:10px;
 
     label{
-        display: block;
-        max-width: 100px;
-        color: $light;
+        display: flex;
+        align-items: center;
+       
+        
+        // max-width: 100px;
+        color: $dark;
         padding: 5px;
-        border: 1px solid white;
+        font-size: 20px;
+        font-weight: 600;
+        // border: 1px solid white;
         border-radius: 10px;
+        margin: 0px 15px 0px 0px;
+        h4{
+            margin: 0px 15px 0px 0px;
+            
+        }
+        
     }
     input{
-        height: 20px;
+        height: 35px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: 1px solid black;
+        box-shadow: 5px 5px 20px $dark;
+        // margin: 0px 15px 0px 0px;
     }
+
 }
+
+.select-field{
+    height: 35px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: 1px solid black;
+        box-shadow: 5px 5px 20px $dark;
+
+        
+}
+.select-option{
+    height: 35px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 20px $dark;
+}
+.react-datepicker-ignore-onclickoutside{
+    padding: 0px 25px 0px 0px;
+    
+}
+
+.react-datepicker__view-calendar-icon input {
+    padding: 7px 10px 5px 35px !important;
+  }
+
+  .form-btn{
+    cursor: pointer;
+    height: 35px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 20px $dark;
+  }

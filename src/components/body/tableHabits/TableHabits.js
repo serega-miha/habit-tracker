@@ -3,14 +3,14 @@ import './tableHabits.scss'
 import CheckBox from '../checkBox/checkBox';
 import { today, countDaysOfMonth } from '../../../dataBase/daysMonths/daysAndMonths';
 
-
+import JsonBin from '../../../service/request/JsonBin';
 
 const TableHabits = (props) => {
    
 
     // const today = new Date();
     // const countDaysOfMonth = 32 - new Date(today.getFullYear(), today.getMonth(), 32).getDate();
- 
+ const newRequest = new JsonBin();
 
    
 
@@ -70,6 +70,7 @@ const TableHabits = (props) => {
 
 
 
+
     //рендерин привычек из базы данных
     function renderHabits(arr) {
         const habitRow = arr.map((item, y) => {
@@ -103,15 +104,25 @@ const TableHabits = (props) => {
                     }
                 }
             })
+
+           function onDeleteHabit(event){
+           let idHabit = event.getAttribute('habit-id');
+           newRequest.deleteResource(idHabit);
+           props.renderAfterAdd();
+           }
+
+
+
             return (
-                <div className="habits__row-name" key={item.id}>
-                    <div className="habits__need block-empty">{item.count}</div>
-                    <div className="habits__name block-empty">{item.nameHabit}</div>
+                <div className="habits__row-name " key={item.id}>
+                    <div className="habits__need block-empty name__habit">{item.count}</div>
+                    <div className="habits__name block-empty name__habit">{item.nameHabit}</div>
                     <ul className="habits__list-days ">
                         {habitDays}
                     </ul>
 
                     <div className="habits__percent block-empty">67%</div>
+                    <a  onClick={(e) => onDeleteHabit(e.target)} className="habit__delete" habit-id={item.id}>Удалить</a>
                 </div>
             )
         })

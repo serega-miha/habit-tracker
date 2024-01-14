@@ -59,6 +59,7 @@ const TableHeader = () => {
                 <div className="habits__name block-empty">Название привычки</div>
                 {itemsDays}
                 <div className="habits__percent block-empty">% исполнения</div>
+                <div className="habits__percent block-empty">удалить</div>
             </div>
             
         </div>

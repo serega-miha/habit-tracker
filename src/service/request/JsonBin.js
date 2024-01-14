@@ -73,6 +73,25 @@ class JsonBin {
     
   }
 
+  deleteResource = async (id) => {
+    try {
+      const rawResponse = await fetch(`http://localhost:3001/data/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+       
+        
+      })
+      const content = await rawResponse.json()
+      
+      console.log(JSON.stringify(content));
+    } catch (error){
+      console.log(error);
+    }
+  }
+
 
 
   // console.log(getResource());

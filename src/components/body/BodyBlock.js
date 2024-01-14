@@ -21,7 +21,7 @@ const BodyBlock = () => {
     useEffect(() => {
         onRequest();
       
-        console.log(dataBase[0]); 
+        // console.log(dataBase[0]); 
     }, [count])
 
     const onRequest = () => {
@@ -44,6 +44,7 @@ const BodyBlock = () => {
                 <TableHabits
                 dataBase={dataBase}
                 onChangeDataBase={onDataBaseLoaded}
+                renderAfterAdd={renderAfterAdd}
                 />
             </div>
             <AddHabit
