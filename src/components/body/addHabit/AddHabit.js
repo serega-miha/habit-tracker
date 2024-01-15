@@ -26,9 +26,9 @@ const AddHabit = (props) => {
             startDate: values.startDate.getFullYear() + '-' + values.startDate.getMonth() + '-' + values.startDate.getDate(),
             results
         }
-        console.log(newDataBaseItem);
-        // newRequest.postResource(newDataBaseItem)
-        // props.renderAfterAdd()
+        // console.log(newDataBaseItem);
+        newRequest.postResource(newDataBaseItem)
+        props.renderAfterAdd()
     }
 
 
@@ -63,7 +63,7 @@ const AddHabit = (props) => {
                         id="nameHabitInput"
                         name="name"
                         placeholder='name'
-
+                        
                     /></label>
                     <label><h4>Дата начала привычки</h4>
                     <DatePickerCalenar
@@ -73,7 +73,7 @@ const AddHabit = (props) => {
                         placeholderText='01.01.2000'
                         defaultValue={new Date()}
                         dateFormat="dd.MM.yyyy" 
-                       
+                        autoComplete='off'
                     /></label>
                  
 

@@ -81,7 +81,7 @@ class JsonBin {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-       
+        
         
       })
       const content = await rawResponse.json()
@@ -91,6 +91,28 @@ class JsonBin {
       console.log(error);
     }
   }
+
+  putResourse = async (data, id) => {
+    try {
+      // console.log(data);
+      // console.log(id);
+      const rawResponse = await fetch(`http://localhost:3001/data/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+        
+      })
+      // const content = await rawResponse.json()
+      
+      // console.log(JSON.stringify(content));
+    } catch (error){
+      console.log(error);
+    }
+  }
+  
 
 
 

@@ -32,8 +32,14 @@ const BodyBlock = () => {
 
     const onDataBaseLoaded = (dataBase) => {
         setDataBase(dataBase)
+        // request.putResourse(dataBase, numDataBase);
     }
 
+    const onUpdateDataBaseLoaded = (dataBaseItem, numDataBase) => {
+        // console.log(dataBaseItem);
+        // console.log(numDataBase);
+        request.putResourse(dataBaseItem, numDataBase);
+    }
 
     
     return (
@@ -44,6 +50,7 @@ const BodyBlock = () => {
                 <TableHabits
                 dataBase={dataBase}
                 onChangeDataBase={onDataBaseLoaded}
+                onUpdateDataBaseLoaded={onUpdateDataBaseLoaded}
                 renderAfterAdd={renderAfterAdd}
                 />
             </div>
@@ -51,7 +58,7 @@ const BodyBlock = () => {
             dataBase={dataBase}
             renderAfterAdd={renderAfterAdd}
             />
-          
+            <input type="text" name="name" autoComplete='off'/>
         </div>
     )
 }
