@@ -87,7 +87,8 @@ const TableHabits = (props) => {
             let statusRed = 0;
             let statusGood = 0;
             let statusStop = 0;
-            console.log(habitDaysArr);
+            let statusDisabled = 0;
+            // console.log(habitDaysArr);
             const habitDays = habitDaysArr.map((el, i) => {
                 let statusIcon = el.status;
                 switch (statusIcon) {
@@ -112,7 +113,7 @@ const TableHabits = (props) => {
                 while (i <= countDaysOfMonth - 1) {
 
                     if (item.startDate.split("-")[2] > i + 1) {
-
+                        statusDisabled += 1;
                         return (
                             <li key={i} className="list-day block-empty"
                                 onClick={() => onChangeStatus(item.id, i)}
@@ -143,9 +144,9 @@ const TableHabits = (props) => {
                 props.renderAfterAdd();
             }
 
-            const percent = (statusGood/(statusRed + statusStop)*100).toFixed(1);
-            console.log(statusNull,statusGood, statusRed, statusStop);
-           console.log(percent);
+            const percent = (statusGood/((statusRed + statusStop + statusNull + statusGood) - statusDisabled)*100).toFixed(1);
+        //     console.log(statusNull, statusRed,statusGood, statusStop);
+        //    console.log(percent);
 
 
             return (

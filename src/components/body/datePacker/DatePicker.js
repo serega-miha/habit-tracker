@@ -19,12 +19,7 @@ const DatePickerCalenar = ({ ...props }) => {
             {...field}
             {...props}
             selected={(field.value && new Date(field.value)) || startDate}
-            onChange={val => {
-
-                
-                setFieldValue(field.name, val)
-                //   console.log(`${val.getFullYear()}-${val.getMonth()}-${val.getDate()}`);
-            }}
+            onChange={val => {setFieldValue(field.name, val)}}
         />
     );
 };

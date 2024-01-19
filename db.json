@@ -2,16 +2,46 @@
   "data": [
     {
       "count": 3,
+      "repeatDays": [
+        {
+          "day": "Mon",
+          "repeat": true
+        },
+        {
+          "day": "Tue",
+          "repeat": false
+        },
+        {
+          "day": "Wen",
+          "repeat": true
+        },
+        {
+          "day": "Thu",
+          "repeat": false
+        },
+        {
+          "day": "Fri",
+          "repeat": true
+        },
+        {
+          "day": "Sat",
+          "repeat": false
+        },
+        {
+          "day": "Sun",
+          "repeat": false
+        }
+      ],
       "nameHabit": "sport",
       "startDate": "2024-1-1",
       "results": [
         {
           "day": 1,
-          "status": 0
+          "status": 2
         },
         {
           "day": 2,
-          "status": 2
+          "status": 0
         },
         {
           "day": 3,
@@ -19,7 +49,7 @@
         },
         {
           "day": 4,
-          "status": 2
+          "status": 0
         },
         {
           "day": 5,
@@ -27,11 +57,11 @@
         },
         {
           "day": 6,
-          "status": 2
+          "status": 0
         },
         {
           "day": 7,
-          "status": 2
+          "status": 0
         },
         {
           "day": 8,
@@ -39,7 +69,7 @@
         },
         {
           "day": 9,
-          "status": 2
+          "status": 0
         },
         {
           "day": 10,
@@ -47,7 +77,7 @@
         },
         {
           "day": 11,
-          "status": 2
+          "status": 0
         },
         {
           "day": 12,
@@ -55,11 +85,11 @@
         },
         {
           "day": 13,
-          "status": 2
+          "status": 0
         },
         {
           "day": 14,
-          "status": 2
+          "status": 0
         },
         {
           "day": 15,
@@ -67,7 +97,7 @@
         },
         {
           "day": 16,
-          "status": 2
+          "status": 0
         },
         {
           "day": 17,
@@ -75,59 +105,59 @@
         },
         {
           "day": 18,
-          "status": 2
+          "status": 0
         },
         {
           "day": 19,
-          "status": 2
+          "status": 1
         },
         {
           "day": 20,
-          "status": 2
+          "status": 0
         },
         {
           "day": 21,
-          "status": 2
+          "status": 0
         },
         {
           "day": 22,
-          "status": 2
+          "status": 1
         },
         {
           "day": 23,
-          "status": 2
+          "status": 0
         },
         {
           "day": 24,
-          "status": 2
+          "status": 1
         },
         {
           "day": 25,
-          "status": 2
+          "status": 0
         },
         {
           "day": 26,
-          "status": 2
+          "status": 1
         },
         {
           "day": 27,
-          "status": 2
+          "status": 0
         },
         {
           "day": 28,
-          "status": 2
+          "status": 0
         },
         {
           "day": 29,
-          "status": 2
+          "status": 1
         },
         {
           "day": 30,
-          "status": 2
+          "status": 0
         },
         {
           "day": 31,
-          "status": 2
+          "status": 1
         }
       ],
       "id": 2
@@ -135,52 +165,82 @@
     {
       "id": 3,
       "count": 1,
+      "repeatDays": [
+        {
+          "day": "Mon",
+          "repeat": false
+        },
+        {
+          "day": "Tue",
+          "repeat": false
+        },
+        {
+          "day": "Wen",
+          "repeat": false
+        },
+        {
+          "day": "Thu",
+          "repeat": false
+        },
+        {
+          "day": "Fri",
+          "repeat": false
+        },
+        {
+          "day": "Sat",
+          "repeat": false
+        },
+        {
+          "day": "Sun",
+          "repeat": true
+        }
+      ],
       "nameHabit": "WhatYourName",
       "startDate": "2024-01-01",
       "results": [
         {
           "day": 1,
-          "status": 1
+          "status": 0
         },
         {
           "day": 2,
-          "status": 1
+          "status": 0
         },
         {
           "day": 3,
-          "status": 1
+          "status": 0
         },
         {
           "day": 4,
-          "status": 1
+          "status": 0
         },
         {
           "day": 5,
-          "status": 1
+          "status": 0
         },
         {
           "day": 6,
-          "status": 1
+          "status": 0
         },
         {
           "day": 7,
-          "status": 1
+          "status": 2
         },
         {
           "day": 8,
-          "status": 1
+          "status": 0
         },
         {
           "day": 9,
-          "status": 1
+          "status": 0
         },
         {
           "day": 10,
-          "status": 1
+          "status": 0
         },
         {
           "day": 11,
-          "status": 1
+          "status": 0
         },
         {
           "day": 12,
@@ -192,7 +252,7 @@
         },
         {
           "day": 14,
-          "status": 1
+          "status": 2
         },
         {
           "day": 15,
@@ -208,19 +268,19 @@
         },
         {
           "day": 18,
-          "status": 1
+          "status": 0
         },
         {
           "day": 19,
-          "status": 2
+          "status": 0
         },
         {
           "day": 20,
-          "status": 1
+          "status": 0
         },
         {
           "day": 21,
-          "status": 0
+          "status": 1
         },
         {
           "day": 22,
@@ -232,11 +292,11 @@
         },
         {
           "day": 24,
-          "status": 1
+          "status": 0
         },
         {
           "day": 25,
-          "status": 2
+          "status": 0
         },
         {
           "day": 26,
@@ -244,15 +304,15 @@
         },
         {
           "day": 27,
-          "status": 1
+          "status": 0
         },
         {
           "day": 28,
-          "status": 3
+          "status": 1
         },
         {
           "day": 29,
-          "status": 1
+          "status": 0
         },
         {
           "day": 30,
@@ -266,140 +326,8 @@
     },
     {
       "count": 7,
-      "nameHabit": "ashot1",
-      "startDate": "2024-1-13",
-      "results": [
-        {
-          "day": 1,
-          "status": 1
-        },
-        {
-          "day": 2,
-          "status": 1
-        },
-        {
-          "day": 3,
-          "status": 1
-        },
-        {
-          "day": 4,
-          "status": 1
-        },
-        {
-          "day": 5,
-          "status": 1
-        },
-        {
-          "day": 6,
-          "status": 1
-        },
-        {
-          "day": 7,
-          "status": 1
-        },
-        {
-          "day": 8,
-          "status": 1
-        },
-        {
-          "day": 9,
-          "status": 1
-        },
-        {
-          "day": 10,
-          "status": 1
-        },
-        {
-          "day": 11,
-          "status": 1
-        },
-        {
-          "day": 12,
-          "status": 1
-        },
-        {
-          "day": 13,
-          "status": 2
-        },
-        {
-          "day": 14,
-          "status": 2
-        },
-        {
-          "day": 15,
-          "status": 2
-        },
-        {
-          "day": 16,
-          "status": 2
-        },
-        {
-          "day": 17,
-          "status": 2
-        },
-        {
-          "day": 18,
-          "status": 2
-        },
-        {
-          "day": 19,
-          "status": 2
-        },
-        {
-          "day": 20,
-          "status": 2
-        },
-        {
-          "day": 21,
-          "status": 2
-        },
-        {
-          "day": 22,
-          "status": 2
-        },
-        {
-          "day": 23,
-          "status": 2
-        },
-        {
-          "day": 24,
-          "status": 2
-        },
-        {
-          "day": 25,
-          "status": 2
-        },
-        {
-          "day": 26,
-          "status": 2
-        },
-        {
-          "day": 27,
-          "status": 2
-        },
-        {
-          "day": 28,
-          "status": 2
-        },
-        {
-          "day": 29,
-          "status": 2
-        },
-        {
-          "day": 30,
-          "status": 2
-        },
-        {
-          "day": 31,
-          "status": 2
-        }
-      ],
-      "id": 5
-    },
-    {
-      "count": "2",
       "nameHabit": "English",
-      "startDate": "2024-0-15",
+      "startDate": "2024-1-6",
       "results": [
         {
           "day": 1,
@@ -479,7 +407,7 @@
         },
         {
           "day": 20,
-          "status": 2
+          "status": 1
         },
         {
           "day": 21,
@@ -491,7 +419,7 @@
         },
         {
           "day": 23,
-          "status": 2
+          "status": 1
         },
         {
           "day": 24,
@@ -499,7 +427,7 @@
         },
         {
           "day": 25,
-          "status": 2
+          "status": 1
         },
         {
           "day": 26,
@@ -526,12 +454,12 @@
           "status": 1
         }
       ],
-      "id": 6
+      "id": 4
     },
     {
       "count": 7,
-      "nameHabit": "",
-      "startDate": "2024-0-17",
+      "nameHabit": "ashot",
+      "startDate": "2024-0-25",
       "results": [
         {
           "day": 1,
@@ -658,7 +586,7 @@
           "status": 1
         }
       ],
-      "id": 7
+      "id": 5
     }
   ]
 }
