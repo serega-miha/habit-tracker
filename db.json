@@ -1,592 +1,258 @@
 {
   "data": [
     {
-      "count": 3,
-      "repeatDays": [
-        {
-          "day": "Mon",
-          "repeat": true
-        },
-        {
-          "day": "Tue",
-          "repeat": false
-        },
-        {
-          "day": "Wen",
-          "repeat": true
-        },
-        {
-          "day": "Thu",
-          "repeat": false
-        },
-        {
-          "day": "Fri",
-          "repeat": true
-        },
-        {
-          "day": "Sat",
-          "repeat": false
-        },
-        {
-          "day": "Sun",
-          "repeat": false
-        }
+      "nameHabit": "English",
+      "countOfWeek": "6",
+      "nameRepeatDays": [
+        "1",
+        "3",
+        "5",
+        "2",
+        "6",
+        "4"
       ],
-      "nameHabit": "sport",
-      "startDate": "2024-1-1",
+      "startDate": "2024-01-20T14:33:22.000Z",
+      "countRepeatDays": 21,
       "results": [
         {
-          "day": 1,
-          "status": 2
-        },
-        {
-          "day": 2,
-          "status": 0
-        },
-        {
-          "day": 3,
-          "status": 2
-        },
-        {
-          "day": 4,
-          "status": 0
-        },
-        {
-          "day": 5,
-          "status": 2
-        },
-        {
-          "day": 6,
-          "status": 0
-        },
-        {
-          "day": 7,
-          "status": 0
-        },
-        {
-          "day": 8,
-          "status": 2
-        },
-        {
-          "day": 9,
-          "status": 0
-        },
-        {
-          "day": 10,
-          "status": 2
-        },
-        {
-          "day": 11,
-          "status": 0
-        },
-        {
-          "day": 12,
-          "status": 2
-        },
-        {
-          "day": 13,
-          "status": 0
-        },
-        {
-          "day": 14,
-          "status": 0
-        },
-        {
-          "day": 15,
-          "status": 2
-        },
-        {
-          "day": 16,
-          "status": 0
-        },
-        {
-          "day": 17,
-          "status": 2
-        },
-        {
-          "day": 18,
-          "status": 0
-        },
-        {
-          "day": 19,
+          "dateDay": 1705761202000,
           "status": 1
         },
         {
-          "day": 20,
+          "dateDay": 1705847602000,
           "status": 0
         },
         {
-          "day": 21,
-          "status": 0
-        },
-        {
-          "day": 22,
+          "dateDay": 1705934002000,
           "status": 1
         },
         {
-          "day": 23,
-          "status": 0
-        },
-        {
-          "day": 24,
+          "dateDay": 1706020402000,
           "status": 1
         },
         {
-          "day": 25,
-          "status": 0
-        },
-        {
-          "day": 26,
+          "dateDay": 1706106802000,
           "status": 1
         },
         {
-          "day": 27,
-          "status": 0
-        },
-        {
-          "day": 28,
-          "status": 0
-        },
-        {
-          "day": 29,
+          "dateDay": 1706193202000,
           "status": 1
         },
         {
-          "day": 30,
+          "dateDay": 1706279602000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706366002000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706452402000,
           "status": 0
         },
         {
-          "day": 31,
+          "dateDay": 1706538802000,
           "status": 1
+        },
+        {
+          "dateDay": 1706625202000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706711602000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706798002000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706884402000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706970802000,
+          "status": 1
+        },
+        {
+          "dateDay": 1707057202000,
+          "status": 0
+        },
+        {
+          "dateDay": 1707143602000,
+          "status": 1
+        },
+        {
+          "dateDay": 1707230002000,
+          "status": 1
+        },
+        {
+          "dateDay": 1707316402000,
+          "status": 1
+        },
+        {
+          "dateDay": 1707402802000,
+          "status": 1
+        },
+        {
+          "dateDay": 1707489202000,
+          "status": 1
+        }
+      ],
+      "id": 1
+    },
+    {
+      "nameHabit": "ashot",
+      "countOfWeek": "2",
+      "nameRepeatDays": [
+        "1",
+        "3"
+      ],
+      "startDate": "2024-01-20T14:33:22.000Z",
+      "countRepeatDays": 35,
+      "results": [
+        {
+          "dateDay": 1705761202000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705847602000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705934002000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706020402000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706106802000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706193202000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706279602000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706366002000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706452402000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706538802000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706625202000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706711602000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706798002000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706884402000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706970802000,
+          "status": 0
+        },
+        {
+          "dateDay": 1707057202000,
+          "status": 0
+        },
+        {
+          "dateDay": 1707143602000,
+          "status": 1
+        },
+        {
+          "dateDay": 1707230002000,
+          "status": 0
+        },
+        {
+          "dateDay": 1707316402000,
+          "status": 1
+        },
+        {
+          "dateDay": 1707402802000,
+          "status": 0
+        },
+        {
+          "dateDay": 1707489202000,
+          "status": 0
+        },
+        {
+          "dateDay": 1707575602000,
+          "status": 0
+        },
+        {
+          "dateDay": 1707662002000,
+          "status": 0
+        },
+        {
+          "dateDay": 1707748402000,
+          "status": 1
+        },
+        {
+          "dateDay": 1707834802000,
+          "status": 0
+        },
+        {
+          "dateDay": 1707921202000,
+          "status": 1
+        },
+        {
+          "dateDay": 1708007602000,
+          "status": 0
+        },
+        {
+          "dateDay": 1708094002000,
+          "status": 0
+        },
+        {
+          "dateDay": 1708180402000,
+          "status": 0
+        },
+        {
+          "dateDay": 1708266802000,
+          "status": 0
+        },
+        {
+          "dateDay": 1708353202000,
+          "status": 1
+        },
+        {
+          "dateDay": 1708439602000,
+          "status": 0
+        },
+        {
+          "dateDay": 1708526002000,
+          "status": 1
+        },
+        {
+          "dateDay": 1708612402000,
+          "status": 0
+        },
+        {
+          "dateDay": 1708698802000,
+          "status": 0
         }
       ],
       "id": 2
-    },
-    {
-      "id": 3,
-      "count": 1,
-      "repeatDays": [
-        {
-          "day": "Mon",
-          "repeat": false
-        },
-        {
-          "day": "Tue",
-          "repeat": false
-        },
-        {
-          "day": "Wen",
-          "repeat": false
-        },
-        {
-          "day": "Thu",
-          "repeat": false
-        },
-        {
-          "day": "Fri",
-          "repeat": false
-        },
-        {
-          "day": "Sat",
-          "repeat": false
-        },
-        {
-          "day": "Sun",
-          "repeat": true
-        }
-      ],
-      "nameHabit": "WhatYourName",
-      "startDate": "2024-01-01",
-      "results": [
-        {
-          "day": 1,
-          "status": 0
-        },
-        {
-          "day": 2,
-          "status": 0
-        },
-        {
-          "day": 3,
-          "status": 0
-        },
-        {
-          "day": 4,
-          "status": 0
-        },
-        {
-          "day": 5,
-          "status": 0
-        },
-        {
-          "day": 6,
-          "status": 0
-        },
-        {
-          "day": 7,
-          "status": 2
-        },
-        {
-          "day": 8,
-          "status": 0
-        },
-        {
-          "day": 9,
-          "status": 0
-        },
-        {
-          "day": 10,
-          "status": 0
-        },
-        {
-          "day": 11,
-          "status": 0
-        },
-        {
-          "day": 12,
-          "status": 0
-        },
-        {
-          "day": 13,
-          "status": 0
-        },
-        {
-          "day": 14,
-          "status": 2
-        },
-        {
-          "day": 15,
-          "status": 0
-        },
-        {
-          "day": 16,
-          "status": 0
-        },
-        {
-          "day": 17,
-          "status": 0
-        },
-        {
-          "day": 18,
-          "status": 0
-        },
-        {
-          "day": 19,
-          "status": 0
-        },
-        {
-          "day": 20,
-          "status": 0
-        },
-        {
-          "day": 21,
-          "status": 1
-        },
-        {
-          "day": 22,
-          "status": 0
-        },
-        {
-          "day": 23,
-          "status": 0
-        },
-        {
-          "day": 24,
-          "status": 0
-        },
-        {
-          "day": 25,
-          "status": 0
-        },
-        {
-          "day": 26,
-          "status": 0
-        },
-        {
-          "day": 27,
-          "status": 0
-        },
-        {
-          "day": 28,
-          "status": 1
-        },
-        {
-          "day": 29,
-          "status": 0
-        },
-        {
-          "day": 30,
-          "status": 0
-        },
-        {
-          "day": 31,
-          "status": 0
-        }
-      ]
-    },
-    {
-      "count": 7,
-      "nameHabit": "English",
-      "startDate": "2024-1-6",
-      "results": [
-        {
-          "day": 1,
-          "status": 1
-        },
-        {
-          "day": 2,
-          "status": 1
-        },
-        {
-          "day": 3,
-          "status": 1
-        },
-        {
-          "day": 4,
-          "status": 1
-        },
-        {
-          "day": 5,
-          "status": 1
-        },
-        {
-          "day": 6,
-          "status": 1
-        },
-        {
-          "day": 7,
-          "status": 1
-        },
-        {
-          "day": 8,
-          "status": 1
-        },
-        {
-          "day": 9,
-          "status": 1
-        },
-        {
-          "day": 10,
-          "status": 1
-        },
-        {
-          "day": 11,
-          "status": 1
-        },
-        {
-          "day": 12,
-          "status": 1
-        },
-        {
-          "day": 13,
-          "status": 1
-        },
-        {
-          "day": 14,
-          "status": 1
-        },
-        {
-          "day": 15,
-          "status": 1
-        },
-        {
-          "day": 16,
-          "status": 1
-        },
-        {
-          "day": 17,
-          "status": 1
-        },
-        {
-          "day": 18,
-          "status": 1
-        },
-        {
-          "day": 19,
-          "status": 1
-        },
-        {
-          "day": 20,
-          "status": 1
-        },
-        {
-          "day": 21,
-          "status": 1
-        },
-        {
-          "day": 22,
-          "status": 1
-        },
-        {
-          "day": 23,
-          "status": 1
-        },
-        {
-          "day": 24,
-          "status": 1
-        },
-        {
-          "day": 25,
-          "status": 1
-        },
-        {
-          "day": 26,
-          "status": 1
-        },
-        {
-          "day": 27,
-          "status": 1
-        },
-        {
-          "day": 28,
-          "status": 1
-        },
-        {
-          "day": 29,
-          "status": 1
-        },
-        {
-          "day": 30,
-          "status": 1
-        },
-        {
-          "day": 31,
-          "status": 1
-        }
-      ],
-      "id": 4
-    },
-    {
-      "count": 7,
-      "nameHabit": "ashot",
-      "startDate": "2024-0-25",
-      "results": [
-        {
-          "day": 1,
-          "status": 1
-        },
-        {
-          "day": 2,
-          "status": 1
-        },
-        {
-          "day": 3,
-          "status": 1
-        },
-        {
-          "day": 4,
-          "status": 1
-        },
-        {
-          "day": 5,
-          "status": 1
-        },
-        {
-          "day": 6,
-          "status": 1
-        },
-        {
-          "day": 7,
-          "status": 1
-        },
-        {
-          "day": 8,
-          "status": 1
-        },
-        {
-          "day": 9,
-          "status": 1
-        },
-        {
-          "day": 10,
-          "status": 1
-        },
-        {
-          "day": 11,
-          "status": 1
-        },
-        {
-          "day": 12,
-          "status": 1
-        },
-        {
-          "day": 13,
-          "status": 1
-        },
-        {
-          "day": 14,
-          "status": 1
-        },
-        {
-          "day": 15,
-          "status": 1
-        },
-        {
-          "day": 16,
-          "status": 1
-        },
-        {
-          "day": 17,
-          "status": 1
-        },
-        {
-          "day": 18,
-          "status": 1
-        },
-        {
-          "day": 19,
-          "status": 1
-        },
-        {
-          "day": 20,
-          "status": 1
-        },
-        {
-          "day": 21,
-          "status": 1
-        },
-        {
-          "day": 22,
-          "status": 1
-        },
-        {
-          "day": 23,
-          "status": 1
-        },
-        {
-          "day": 24,
-          "status": 1
-        },
-        {
-          "day": 25,
-          "status": 1
-        },
-        {
-          "day": 26,
-          "status": 1
-        },
-        {
-          "day": 27,
-          "status": 1
-        },
-        {
-          "day": 28,
-          "status": 1
-        },
-        {
-          "day": 29,
-          "status": 1
-        },
-        {
-          "day": 30,
-          "status": 1
-        },
-        {
-          "day": 31,
-          "status": 1
-        }
-      ],
-      "id": 5
     }
   ]
 }

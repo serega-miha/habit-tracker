@@ -80,15 +80,23 @@ const TableHabits = (props) => {
 
     //рендерин привычек из базы данных
     function renderHabits(arr) {
-        const habitRow = arr.map((item, y) => {
+        const habitRow = arr.map((item) => {
 
             const habitDaysArr = item.results;
+            // console.log(habitDaysArr);
+            // console.log(countDaysOfMonth);
             let statusNull = 0;
             let statusRed = 0;
             let statusGood = 0;
             let statusStop = 0;
             let statusDisabled = 0;
             // console.log(habitDaysArr);
+            let yi = 0;
+            const tempDate = new Date(habitDaysArr[0].dateDay)
+         
+            // console.log(new Date(habitDaysArr[0].dateDay).getDate());
+
+
             const habitDays = habitDaysArr.map((el, i) => {
                 let statusIcon = el.status;
                 switch (statusIcon) {
@@ -109,10 +117,12 @@ const TableHabits = (props) => {
                         break
                 }
 
-
+                
+            
+               
                 while (i <= countDaysOfMonth - 1) {
-
-                    if (item.startDate.split("-")[2] > i + 1) {
+                  
+                    if (new Date(item.startDate).getDate() > i + 1) {
                         statusDisabled += 1;
                         return (
                             <li key={i} className="list-day block-empty"

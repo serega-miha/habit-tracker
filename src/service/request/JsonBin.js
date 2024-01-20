@@ -66,7 +66,7 @@ class JsonBin {
       })
       const content = await rawResponse.json()
       
-      console.log(JSON.stringify(content));
+      // console.log(JSON.stringify(content));
     } catch (error){
       console.log(error);
     }

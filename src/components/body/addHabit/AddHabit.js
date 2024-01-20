@@ -6,86 +6,91 @@ import { Formik, Form, Field, useFormikContext, ErrorMessage } from 'formik';
 import { todayDate, countDaysOfMonth } from '../../../dataBase/daysMonths/daysAndMonths';
 import DatePickerCalenar from '../datePacker/DatePicker';
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const AddHabit = (props) => {
-    const [finishDate, setFinishDate] = useState('');
-    ////////////////////////////////////////////
-    // const myDate = new Date();
-    // console.log(myDate.getTime());
+    const [numberOfDayPerWeek, setNumberOfDayPerWeek] = useState(3);
 
-    // function addDays(myDate,days) {
-    //     return new Date(myDate.getTime() + days*24*60*60*1000);
-    //     }
-
-    //     console.log(addDays(myDate,390));
-
-    ///////////////////////////////////////////
-    //  console.log(todayDate);
+    // useEffect(() => {
+    //     console.log(numberOfDayPerWeek, 'now = ');
+    // }, [numberOfDayPerWeek])
 
     const newRequest = new JsonBin();
 
-    const onSubmit = (values) => {
-        const testDate = values.startDate;
-        console.log(testDate.getTime());
-        console.log(testDate.getFullYear());
-        console.log(testDate.getMonth() + 1);
-        console.log(testDate.getDate());
-        //продолжительность
-        const durationHabit = values.weeksCount * 7;
-         //дата начала
-         const startDate = values.startDate.getFullYear() + '-' + values.startDate.getMonth() + '-' + values.startDate.getDate();
-        //  const startDate = values.startDate.getFullYear() + '-' + values.startDate.getMonth() + '-' + values.startDate.getDate();
-        //количество повторений в неделю
-        const checkedDaysOfWeek = values.checked;
 
+    const onSubmit = (values) => {
+
+        //имя
+        const nameHabit = values.name;
+        //количество повторений в неделю //3
+        const countOfWeek = values.countOfWeek;
+        //дни повторений в неделю //['1', '3', '5']
+        const nameRepeatDays = values.repeatDays;
+         //дата начала
+       
+         const countRepeatDays = values.countWeeks * 7;
+         const startDate = values.startDate;
+        //продолжительность в милисекундах
+        const startDateTime = startDate.getTime();
+        const oneDayTime = 86400000;
 
         function createResults(num) {
-            let arr = [];
-
-            for (let i = 1; i <= num; i++) {
-                arr[i - 1] = { day: i, status: 1 }
-                // arr[i - 1] = { year: year, month: month, day: i, status: 1 }
+            function setStatusDays(date, arrRepeat){
+                const evenNew = (el) => +el === date.getDay();
+                return arrRepeat.some(evenNew) ? 1 : 0;
             }
-            return arr;
+    
+    
+            let newArr = [];
+            let tempTime = 0;
+    
+            for (let i = 0; i < num; i++) {
+                newArr[i] = { dateDay: startDateTime + tempTime, status: setStatusDays(new Date(startDateTime + tempTime), nameRepeatDays)}
+                tempTime += oneDayTime;
+            }   
+            return newArr;
         }
 
-        const results = createResults(countDaysOfMonth)
+        const results = createResults(countRepeatDays)
         const newDataBaseItem = {
-            count: values.countOfWeek,
-            nameHabit: values.name,
-
+            nameHabit,
+            countOfWeek,
+            nameRepeatDays,
             startDate,
-            checkedDaysOfWeek,
-            weeksCount: values.weeksCount,
-            durationHabit,
+            countRepeatDays,
             results
         }
-        console.log(newDataBaseItem);
-        // newRequest.postResource(newDataBaseItem)
-        // props.renderAfterAdd()
+        // console.log(newDataBaseItem);
+        newRequest.postResource(newDataBaseItem)
+        props.renderAfterAdd()
     }
 
 
     return (
         <div className="add__habit-container">
             <Formik
+                
                 initialValues={{
                     name: "",
-                    countOfWeek: 7,
+                    countOfWeek: 3,
+                    repeatDays: ["1", "3", "5"],
                     startDate: "",
-                    checked: ["Mon", "Tue", "Wen", "Thu", "Fri", "Sut", "Sun"],
-                    weeksCount: 4
-                    
+                    countWeeks: 1
+
                 }}
+                
                 validationSchema={Yup.object({
                     name: Yup.string()
                         .min(2, 'Минимум 2 символа')
                         .required('Обязательное поле нах'),
                     startDate: Yup.string()
-                        .required('Обязательное поле нах')
+                        .required('Обязательное поле нах'),
+                    repeatDays: Yup.array()
+                        .min(numberOfDayPerWeek, "Минимум столько галочек")
+                        .max(numberOfDayPerWeek, "Минимум столько галочек")
                 })}
                 onSubmit={(values, { resetForm }) => {
+                   
                     onSubmit(values)
                     resetForm()
                 }}>
@@ -102,14 +107,20 @@ const AddHabit = (props) => {
                                     className={errors.name && touched.name ? "input-error" : null}
 
                                 />
+                                {errors.name && touched.name ? <div className='input-error'>ошибка</div> : null}
                             </div>
                             <div className="add__habit-count__days">
-                                <label className='add-label' htmlFor="weeksCount"><h4>Количество повторений в неделю</h4>
+                                <label className='add-label' htmlFor="countOfWeek"><h4>Количество повторений {numberOfDayPerWeek} в неделю</h4>
                                     <Field
                                         component="select"
-                                        name="weeksCount"
-                                        id="weeksCount"
+                                        name="countOfWeek"
+                                        id="countOfWeek"
                                         className="select-field"
+                                        onClick={(e) => {
+                                            setNumberOfDayPerWeek(e.target.value)}
+                                            }
+                                       
+
                                     >
                                         <option className='select-option' value="1">1</option>
                                         <option className='select-option' value="2">2</option>
@@ -117,42 +128,45 @@ const AddHabit = (props) => {
                                         <option className='select-option' value="4">4</option>
                                         <option className='select-option' value="5">5</option>
                                         <option className='select-option' value="6">6</option>
-                                        <option className='select-option' value="7" >7</option>
+                                        <option className='select-option'  value="7" >7</option>
                                     </Field>
                                 </label>
-                                <div id="checkbox-group">Дни недели</div>
-                                <div role="group" aria-labelledby="checkbox-group" className='checkbox-group'>
+                                    
+                                <div id="checkbox-group" >Дни недели</div>
+                                <div role="group" aria-labelledby="checkbox-group"
+                                 
+                                 className={errors.repeatDays && touched.repeatDays ? "checkbox-group input-error" : "checkbox-group"}>
                                     <label>
-                                        <Field type="checkbox" name="checked" value="Mon" />
+                                        <Field type="checkbox" name="repeatDays" value='1' />
                                         Пн
                                     </label>
                                     <label>
-                                        <Field type="checkbox" name="checked" value="Tue" />
+                                        <Field type="checkbox" name="repeatDays" value="2" />
                                         Вт
                                     </label>
                                     <label>
-                                        <Field type="checkbox" name="checked" value="Wen" />
+                                        <Field type="checkbox" name="repeatDays" value="3" />
                                         Ср
                                     </label>
                                     <label>
-                                        <Field type="checkbox" name="checked" value="Thu" />
+                                        <Field type="checkbox" name="repeatDays" value="4" />
                                         Чт
                                     </label>
                                     <label>
-                                        <Field type="checkbox" name="checked" value="Fri" />
+                                        <Field type="checkbox" name="repeatDays" value="5" />
                                         Пт
                                     </label>
                                     <label>
-                                        <Field type="checkbox" name="checked" value="Sut" />
+                                        <Field type="checkbox" name="repeatDays" value="6" />
                                         Сб
                                     </label>
                                     <label>
-                                        <Field type="checkbox" name="checked" value="Sun" />
+                                        <Field type="checkbox" name="repeatDays" value="0" />
                                         Вс
                                     </label>
-
+                                    
                                 </div>
-
+                                {errors.repeatDays && touched.repeatDays ? <div className='input-error'>нужно {numberOfDayPerWeek} галочек</div> : null}
 
                             </div>
                             <div className="add__habit-date__start">
@@ -167,10 +181,10 @@ const AddHabit = (props) => {
                                     dateFormat="dd.MM.yyyy"
                                     autoComplete='off'
                                     className={errors.name && touched.name ? "input-error" : null}
-                                    onChange={setFinishDate}
-                                    
+                                   
+
                                 />
-                                <h4 className='finish-date'>Дата окончания:<p>{finishDate}</p></h4>
+                               
                             </div>
                             <div className="add__habit-count__weeks">
                                 <label className='add-label' htmlFor="countWeeks"><h4>Количество недель</h4>
