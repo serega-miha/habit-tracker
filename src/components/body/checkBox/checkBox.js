@@ -22,7 +22,7 @@ const CheckBox = (props) => {
    
 
     return (
-        <button className={newClass} date={props.date} disabled={props.disable}>
+        <button className={newClass} date={props.date} disabled={props.disable} >
 
             <div id="tick_mark2"></div>
             <div id="tick_mark3"></div>

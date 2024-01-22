@@ -13,3 +13,21 @@
 .habits__table{
     
 }
+.list__month{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.item__month{
+    border: 2px solid $dark;
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $dark;
+    }
+    &:active{
+        background-color: $dark;
+    }
+}

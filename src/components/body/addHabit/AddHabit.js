@@ -27,12 +27,19 @@ const AddHabit = (props) => {
         //дни повторений в неделю //['1', '3', '5']
         const nameRepeatDays = values.repeatDays;
          //дата начала
-       
-         const countRepeatDays = values.countWeeks * 7;
          const startDate = values.startDate;
+        //количество повт орений в днях
+         const countRepeatDays = values.countWeeks * 7;
+         //дата окончания
+         const finishDate = new Date(new Date(startDate).getTime() + new Date(countRepeatDays*24*60*60*1000).getTime()) ;
         //продолжительность в милисекундах
         const startDateTime = startDate.getTime();
         const oneDayTime = 86400000;
+
+        // console.log(new Date(startDate).getTime(), 'новая дата');
+        // console.log(new Date(countRepeatDays*24*60*60*1000).getTime(), 'duration');
+        // const tempFinish = new Date(startDate).getTime() + new Date(countRepeatDays*24*60*60*1000).getTime();
+        // console.log(new Date(tempFinish));
 
         function createResults(num) {
             function setStatusDays(date, arrRepeat){
@@ -57,6 +64,7 @@ const AddHabit = (props) => {
             countOfWeek,
             nameRepeatDays,
             startDate,
+            finishDate,
             countRepeatDays,
             results
         }
@@ -175,7 +183,7 @@ const AddHabit = (props) => {
                                 <DatePickerCalenar
                                     // setFieldValue={new Date()}
                                     name="startDate"
-                                    minDate={new Date()}
+                                    // minDate={new Date()}
                                     placeholderText='01.01.2000'
                                     // defaultValue={new Date()}
                                     dateFormat="dd.MM.yyyy"
