@@ -253,6 +253,47 @@
         }
       ],
       "id": 2
+    },
+    {
+      "nameHabit": "kurlik",
+      "countOfWeek": "2",
+      "nameRepeatDays": [
+        "1",
+        "0"
+      ],
+      "startDate": "2024-01-28T05:10:01.000Z",
+      "countRepeatDays": 7,
+      "results": [
+        {
+          "dateDay": 1706418601000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706505001000,
+          "status": 1
+        },
+        {
+          "dateDay": 1706591401000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706677801000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706764201000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706850601000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706937001000,
+          "status": 0
+        }
+      ],
+      "id": 3
     }
   ]
 }

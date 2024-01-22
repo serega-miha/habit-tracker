@@ -100,35 +100,70 @@ const TableHabits = (props) => {
             let statusStop = 0;
             let statusDisabled = 0;
             // console.log(habitDaysArr);
-            console.log(countDaysOfMonth - startDay);
+            // console.log(countDaysOfMonth - startDay);
 
-            const habitDaysDisable = Array.from({length: startDay}, (el, i) => {
+            const habitDaysDisable = Array.from({ length: startDay - 1 }, (el, i) => {
                 return (
-                                    <li key={i} className="list-day block-empty"
-        
-                                    ><CheckBox
-                                            status={0}
-                                            disable={"disabled"}
-                                        /></li>
-                                )
+                    <li key={i} className="list-day block-empty"
+
+                    ><CheckBox
+                            status={0}
+                            disable={"disabled"}
+                        /></li>
+                )
             })
-//ошибка в мэп
-            const habitDaysActive =  habitDaysArr.map((el, i) => {
-                while ((countDaysOfMonth - 1 - startDay) >= i){
-                    return (
-                                            <li key={i} className="list-day block-empty"
-                                           
-                                            ><CheckBox
-                                                    status={el.status}
-                                                    date={item.startDate}
-                                                    disable={""}
-                                                /></li>
-                                        )
+            //ошибка в мэп
+            // const habitDaysActive =  habitDaysArr.map((el, i) => {
+            //     while ((countDaysOfMonth  - startDay) >= i){
+            //         return (
+            //                                 <li key={i} className="list-day block-empty"
+
+            //                                 ><CheckBox
+            //                                         status={el.status}
+            //                                         date={item.startDate}
+            //                                         disable={""}
+            //                                     /></li>
+            //                             )
+            //     }
+
+            // })
+
+            // let habitDaysActive = [];
+            // habitDaysArr.forEach((el, i) => {
+            //     while ((countDaysOfMonth - startDay) >= i) {
+            //         console.log(countDaysOfMonth - startDay);
+            //         console.log(i);
+            //         habitDaysActive.push(
+            //             <li key={i} className="list-day block-empty"
+
+            //             ><CheckBox
+            //                     status={el.status}
+            //                     date={item.startDate}
+            //                     disable={""}
+            //                 /></li>
+            //         )
+            //     }
+
+            // })
+            let habitDaysActive = [];
+            habitDaysArr.forEach((el,i) => {
+                if ((countDaysOfMonth - startDay) >= i){
+                    habitDaysActive.push(
+                        <li key={i} className="list-day block-empty"
+
+                                    ><CheckBox
+                                            status={el.status}
+                                            date={item.startDate}
+                                            disable={""}
+                                        /></li>
+                    )
                 }
-                
             })
 
-//////////////////////////////////////////////////////////////////////
+
+
+
+            //////////////////////////////////////////////////////////////////////
             // const habitDays = newNewArr.map((el, i) => {
             //     while (i <= countDaysOfMonth - 1) {
             //         if (new Date(item.startDate).getDate() > i + 1) {
@@ -144,7 +179,7 @@ const TableHabits = (props) => {
             //             )
             //         } else {
             //             // console.log(i, countDaysOfMonth);
-                       
+
             //                 return (
             //                     <li key={i} className="list-day block-empty"
             //                         onClick={() => onChangeStatus(item.id, i)}
@@ -154,15 +189,15 @@ const TableHabits = (props) => {
             //                             disable={""}
             //                         /></li>
             //                 )
-                        
-                        
+
+
             //         }
             //     }
             // })
 
-            
+
             // const newHabitDays = Array.from({length: countDaysOfMonth}, (el, i) => {
-                
+
             //     if (new Date(item.startDate).getDate() > i + 1){
             //         return (
             //             <li key={i} className="list-day block-empty"
@@ -173,7 +208,7 @@ const TableHabits = (props) => {
             //                 /></li>
             //         )
             //     } else  {
-                   
+
 
             //         for (let j = 0; j < countDaysOfMonth - i; j++) {
             //             if (new Date(habitDaysArr[j].dateDay).getDate() === i + 1){
@@ -187,10 +222,10 @@ const TableHabits = (props) => {
             //                                         /></li>
             //                                 )
             //             } else {
-                            
+
             //                 return (
             //                     <li key={i} className="list-day block-empty"
-                               
+
             //                     ><CheckBox
             //                             status={3}
             //                             date={item.startDate}
@@ -201,7 +236,7 @@ const TableHabits = (props) => {
             //         }
             //     } 
             // });
-//////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////
 
 
 
@@ -268,16 +303,16 @@ const TableHabits = (props) => {
             const percent = (statusGood / ((statusRed + statusStop + statusNull + statusGood) - statusDisabled) * 100).toFixed(1);
             //     console.log(statusNull, statusRed,statusGood, statusStop);
             //    console.log(percent);
-            console.log(habitDaysDisable);
-            console.log(habitDaysActive);
-            
+            // console.log(habitDaysDisable);
+            // console.log(habitDaysActive);
+
             return (
                 <div className="habits__row-name " key={item.id}>
                     <div className="habits__need block-empty name__habit">{item.count}</div>
                     <div className="habits__name block-empty name__habit">{item.nameHabit}</div>
                     <ul className="habits__list-days ">
-                        {/* {habitDaysDisable}
-                        {habitDaysActive} */}
+                        {habitDaysDisable}
+                        {habitDaysActive}
                         {/* {habitDays} */}
                         {/* {newHabitDays} */}
                     </ul>
