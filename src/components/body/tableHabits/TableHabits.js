@@ -18,10 +18,10 @@ const TableHabits = (props) => {
 
     //функция изменения статуса привычки
     const onChangeStatus = (numDataBase, dataId) => {
-        console.log(numDataBase);
-        console.log(dataId);
+        // console.log(numDataBase);
+        // console.log(dataId);
         const filterDataBase = props.dataBase.filter((item) => item.id === numDataBase)[0];
-     console.log(filterDataBase);
+    //  console.log(filterDataBase);
      
         const status = filterDataBase.results.filter((item) => item.dateDay === dataId)[0].status;
         // console.log(status);
@@ -84,7 +84,7 @@ const TableHabits = (props) => {
 
 
     function renderHabitsNew(arr, todayYear, todayMonth) {
-        const countDaysOfMonth = 32 - new Date(todayYear, todayMonth - 1, 32).getDate();
+        const countDaysOfMonth = 32 - new Date(todayYear, todayMonth , 32).getDate();
         // console.log('function is working');
     
     
@@ -96,7 +96,7 @@ const TableHabits = (props) => {
             // const startDay = new Date(item.startDate).getDate();
             // const finishDay = new Date(item.finishDate).getDate();
     
-            const habitDaysArr = item.results.filter((el) => new Date(el.dateDay).getMonth() + 1 === +todayMonth);
+            const habitDaysArr = item.results.filter((el) => new Date(el.dateDay).getMonth() === +todayMonth);
     
             let statusNull = 0;
             let statusRed = 0;
@@ -175,7 +175,7 @@ const TableHabits = (props) => {
 
 
     // const habitRow = renderHabits(props.dataBase)
-    const habitRow = renderHabitsNew(props.dataBase, '2024', '02');
+    const habitRow = renderHabitsNew(props.dataBase, props.selectedFullYear, props.selectedMonth - 1);
 
     return (
         <div className="habits__table-body">

@@ -18,7 +18,7 @@
     justify-content: space-between;
     padding: 20px;
 }
-.item__month{
+.NavLink__month{
     border: 2px solid $dark;
     padding: 5px 10px;
     border-radius: 15px;
@@ -27,7 +27,7 @@
     &:hover{
         background-color: $dark;
     }
-    &:active{
+    &.active{
         background-color: $dark;
     }
 }

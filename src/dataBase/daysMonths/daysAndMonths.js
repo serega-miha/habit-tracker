@@ -8,6 +8,12 @@ const repeatDays = [
     {day: "Sun", repeat: true},
 ];
 
+const monthsEng = ["January","February","March","April","May","June","July",
+"August","September","October","November","December"];
+
+const monthRus= ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль",
+            "Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+
 const months=[
     'Янв',
     'Фев',
@@ -35,4 +41,4 @@ const goodDay = today.getDate() > 9 ? today.getDate() : `0${today.getDate()}`
 // console.log(testDate);
 const todayDate = `${goodDay}.${goodMonth}.${today.getFullYear()}`;
 
-export {months, days, today, countDaysOfMonth, todayDate, repeatDays};
+export {months, days, today, countDaysOfMonth, todayDate, repeatDays, monthsEng,monthRus};

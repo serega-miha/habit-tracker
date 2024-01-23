@@ -3,12 +3,13 @@ import { days, months } from '../../../dataBase/daysMonths/daysAndMonths';
 
 
 
-const TableHeader = () => {
+const TableHeader = (props) => {
 
     const today = new Date();
 
     //количество дней в месяце
-    const countDaysOfMonth = 32 - new Date(today.getFullYear(), today.getMonth(), 32).getDate();
+    const countDaysOfMonth = 32 - new Date(props.selectedFullYear, props.selectedMonth - 1, 32).getDate();
+    
 
     //первый день в месяце
     const firstDayofMonth = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
