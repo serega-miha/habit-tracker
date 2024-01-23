@@ -2,80 +2,80 @@
 import CheckBox from "../checkBox/checkBox";
 
 
-function renderHabitsNew(arr, todayYear, todayMonth) {
-    const countDaysOfMonth = 32 - new Date(todayYear, todayMonth - 1, 32).getDate();
-    // console.log('function is working');
+// function renderHabitsNew(arr, todayYear, todayMonth) {
+//     const countDaysOfMonth = 32 - new Date(todayYear, todayMonth - 1, 32).getDate();
+//     // console.log('function is working');
 
 
-    const habitRow = arr.map((item, j) => {
-        const startYear = new Date(item.startDate).getFullYear();
-        const finishYear = new Date(item.finishDate).getFullYear();
-        const startMonth = new Date(item.startDate).getMonth() + 1;
-        const finishMonth = new Date(item.finishDate).getMonth() + 1;
-        const startDay = new Date(item.startDate).getDate();
-        const finishDay = new Date(item.finishDate).getDate();
+//     const habitRow = arr.map((item, j) => {
+//         const startYear = new Date(item.startDate).getFullYear();
+//         const finishYear = new Date(item.finishDate).getFullYear();
+//         const startMonth = new Date(item.startDate).getMonth() + 1;
+//         const finishMonth = new Date(item.finishDate).getMonth() + 1;
+//         const startDay = new Date(item.startDate).getDate();
+//         const finishDay = new Date(item.finishDate).getDate();
 
-        const habitDaysArr = item.results.filter((el) => new Date(el.dateDay).getMonth() + 1 === +todayMonth);
+//         const habitDaysArr = item.results.filter((el) => new Date(el.dateDay).getMonth() + 1 === +todayMonth);
 
-        if (habitDaysArr.length > 0) {
-             // const newHabitDaysArr = habitDaysArr
-        const itemStartDay = new Date(habitDaysArr[0].dateDay).getDate() - 1;
+//         if (habitDaysArr.length > 0) {
+//              // const newHabitDaysArr = habitDaysArr
+//         const itemStartDay = new Date(habitDaysArr[0].dateDay).getDate() - 1;
 
 
 
-        const habitDaysDisable = Array.from({ length: itemStartDay }, (el, i) => {
-            return (
-                <li key={i} className="list-day block-empty"
+//         const habitDaysDisable = Array.from({ length: itemStartDay }, (el, i) => {
+//             return (
+//                 <li key={i} className="list-day block-empty"
 
-                ><CheckBox
-                        status={0}
-                        disable={"disabled"}
-                    /></li>
-            )
-        })
-        const habitsDaysActive = habitDaysArr.map((el, i) => {
-            return (
-                <li key={i} className="list-day block-empty"
+//                 ><CheckBox
+//                         status={0}
+//                         disable={"disabled"}
+//                     /></li>
+//             )
+//         })
+//         const habitsDaysActive = habitDaysArr.map((el, i) => {
+//             return (
+//                 <li key={i} className="list-day block-empty"
 
-                ><CheckBox
-                        status={el.status}
-                        date={item.startDate}
-                        disable={""}
-                    /></li>
-            )
-        })
+//                 ><CheckBox
+//                         status={el.status}
+//                         date={item.startDate}
+//                         disable={""}
+//                     /></li>
+//             )
+//         })
        
 
         
 
 
-        return (
-            <div className="habits__row-name " key={item.id}>
-                <div className="habits__need block-empty name__habit">{item.count}</div>
-                <div className="habits__name block-empty name__habit">{item.nameHabit}</div>
-                <ul className="habits__list-days ">
-                    {habitDaysDisable}
-                    {habitsDaysActive}
+//         return (
+//             <div className="habits__row-name " key={item.id}>
+//                 <div className="habits__need block-empty name__habit">{item.count}</div>
+//                 <div className="habits__name block-empty name__habit">{item.nameHabit}</div>
+//                 <ul className="habits__list-days ">
+//                     {habitDaysDisable}
+//                     {habitsDaysActive}
        
-                </ul>
+//                 </ul>
 
-                <div className="habits__percent block-empty">%</div>
-                {/* <a onClick={(e) => onDeleteHabit(e.target)} className="habit__delete" habit-id={item.id}>Удалить</a> */}
-            </div>
-        )
-        } else {
-            return null;
-        }
+//                 <div className="habits__percent block-empty">%</div>
+//                 {/* <a onClick={(e) => onDeleteHabit(e.target)} className="habit__delete" habit-id={item.id}>Удалить</a> */}
+//             </div>
+//         )
+//         } else {
+//             return null;
+//         }
 
        
 
-    })
-    return habitRow
+//     })
+//     return habitRow
 
-}
+// }
 
 
-export default renderHabitsNew;
+// export default renderHabitsNew;
 
 
 
