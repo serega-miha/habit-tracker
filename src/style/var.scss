@@ -2,3 +2,24 @@ $dark:  #282c34;
 $light:  #a1b0cc;
 $medium:  #636c7e;
 $grey:  #8590a7;
+
+
+.my-btn{
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: white;
+    background-color: $medium;
+    font-size: 15px;
+    // border: 2px solid $dark;
+    // padding: 5px 10px;
+    // border-radius: 15px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $dark;
+    }
+    &.active{
+        background-color: $dark;
+    }
+
+;}

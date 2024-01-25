@@ -24,10 +24,10 @@ const BlockTable = (props) => {
                 onUpdateDataBaseLoaded={props.onUpdateDataBaseLoaded}
                 renderAfterAdd={props.renderAfterAdd}
             />
-            <AddHabit
+            {/* <AddHabit
             dataBase={props.dataBase}
             renderAfterAdd={props.renderAfterAdd}
-            />
+            /> */}
         </div>
     )
 }

@@ -4,6 +4,7 @@ import CheckBox from '../checkBox/checkBox';
 import { today, countDaysOfMonth } from '../../../dataBase/daysMonths/daysAndMonths';
 
 import JsonBin from '../../../service/request/JsonBin';
+import ModalWindow from '../addHabit/AddHabit';
 
 
 
@@ -231,13 +232,13 @@ const TableHabits = (props) => {
 
                 const habitDaysAdd = Array.from({ length: 1 }, (el, i) => {
                     return (
-                        
-                        <li key={j}
-                        //это сделано для выделения сегодня стилями
-                        className='list-day block-empty'
 
-                                              
-                    ><button>настройки</button></li>
+                        <li key={j}
+                            //это сделано для выделения сегодня стилями
+                            className='list-day block-empty'
+
+
+                        ><button className='my-btn'>Продлить</button></li>
                     )
                 })
 
@@ -309,8 +310,16 @@ const TableHabits = (props) => {
 
                 j = 0;
                 return (
-                    <div className="habits__row-name " key={item.id}>
-                        <div className="habits__need block-empty name__habit">{item.count}</div>
+                    <div className="habits__row-name " key={item.id} >
+                        <div className="habits__need block-empty name__habit">
+                            {/* <button className='my-btn' habit-id={item.id}>Редактировать</button> */}
+                            <ModalWindow
+                                nameTrigger="Редактировать!"
+                                renderAfterAdd={props.renderAfterAdd}
+                                dataBase={props.dataBase}
+                                habitId={item.id}
+                            />
+                        </div>
                         <div className="habits__name block-empty name__habit"><p>{item.nameHabit}</p></div>
                         <ul className="habits__list-days ">
                             {habitsDays}
@@ -320,7 +329,7 @@ const TableHabits = (props) => {
                         </ul>
 
                         <div className="habits__percent block-empty">{percent}</div>
-                        <a href="#" onClick={(e) => onDeleteHabit(e.target)} className="NavLink__month" habit-id={item.id}>Удалить</a>
+                        <button onClick={(e) => onDeleteHabit(e.target)} className="my-btn" habit-id={item.id}>Удалить</button>
                     </div>
                 )
             } else {

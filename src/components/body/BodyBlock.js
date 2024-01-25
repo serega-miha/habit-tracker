@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route, NavLink, Outlet } from 'react-r
 import JsonBin from '../../service/request/JsonBin';
 import BlockTable from './BlockTable';
 import { monthsEng, monthRus, today } from '../../dataBase/daysMonths/daysAndMonths';
+import ModalWindow from './addHabit/AddHabit';
+import Modal from '../Modal/Modal';
 
 
 
@@ -17,6 +19,9 @@ const BodyBlock = () => {
     const [selectedMonth, setSelectedMonth] = useState('01')
     const [nameSelectedMonth, setNameSelectedMonth] = useState('January')
     const [selectedFullYear, setSelectedFullYear] = useState("2024")
+
+
+    const [openModal, setOpenModal]= useState(false)
 
     
     const renderAfterAdd = () => {
@@ -100,7 +105,21 @@ const BodyBlock = () => {
 
 
             </Routes>
-
+            <div className="create-habit">
+                        {/* <ModalWindow
+                        nameTrigger='Создать'
+                        renderAfterAdd={renderAfterAdd}
+                        // dataBase={dataBase}
+                        
+                        /> */}
+                        <button onClick={() => setOpenModal(true)}>Create</button>
+                        <Modal
+                        active={openModal}
+                        setActive={setOpenModal}
+                        >
+                            <h2>jryjlheujt</h2>
+                        </Modal>
+            </div>
         </div>
 
     )
