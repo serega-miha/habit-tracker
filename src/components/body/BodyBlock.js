@@ -65,13 +65,11 @@ const BodyBlock = () => {
             >
                 <NavLink
                     to={"/"+item}
-                    
                     // className="NavLink__month"
                     onClick = {() => updateMonth(i+1, item)}
                     className={({ isActive }) =>
                    isActive ? "NavLink__month active" : "NavLink__month"
                   }
-                    // style={({ isActive }) => ({ backgroundColor: isActive ? "black" : "none" })}
                 >
                     {monthRus[i]}
                 </NavLink>
@@ -83,18 +81,7 @@ const BodyBlock = () => {
 
         <div className="body-container">
             <ul className="list__month">
-                {/* <li className="item__month"><NavLink to="/January" data-number="1" className="NavLink__month">Январь</NavLink></li>
-                <li className="item__month"><NavLink to="/February" data-number="2" className="NavLink__month">Февраль</NavLink></li>
-                <li className="item__month"><NavLink to="/March" data-number="3" className="NavLink__month">Март</NavLink></li>
-                <li className="item__month"><NavLink to="/April" data-number="4" className="NavLink__month">Апрель</NavLink></li>
-                <li className="item__month"><NavLink to="/May" data-number="5" className="NavLink__month">Май</NavLink></li>
-                <li className="item__month"><NavLink to="/June" data-number="6" className="NavLink__month">Июнь</NavLink></li>
-                <li className="item__month"><NavLink to="/July" data-number="7" className="NavLink__month">Июль</NavLink></li>
-                <li className="item__month"><NavLink to="/August" data-number="8" className="NavLink__month">Август</NavLink></li>
-                <li className="item__month"><NavLink to="/September" data-number="9" className="NavLink__month">Сентябрь</NavLink></li>
-                <li className="item__month"><NavLink to="/October" data-number="10" className="NavLink__month">Октябрь</NavLink></li>
-                <li className="item__month"><NavLink to="/November" data-number="11" className="NavLink__month">Ноябрь</NavLink></li>
-                <li className="item__month"><NavLink to="/December" data-number="12" className="NavLink__month">Декабрь</NavLink></li> */}
+     
                     {linkMonths}
             </ul>
             {/* <Outlet/> */}

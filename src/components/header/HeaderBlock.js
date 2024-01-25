@@ -1,6 +1,8 @@
+import { today } from '../../dataBase/daysMonths/daysAndMonths'
 import './headerBlock.scss'
 import BlockTime from './time/BlockTime'
 import { NavLink } from 'react-router-dom'
+import { monthsEng } from '../../dataBase/daysMonths/daysAndMonths'
 
 const HeaderBlock = () => {
     return (
@@ -8,8 +10,9 @@ const HeaderBlock = () => {
         <div className="header__container">
             <div className="header__nav">
                 <NavLink
+                    
                     style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" })}
-                    to="/" className="header__mind">habit</NavLink>
+                    to={'/'+ monthsEng[today.getMonth()]} className="header__mind">habit</NavLink>
                 <NavLink
                     style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" })}
                     to="/mind" className="header__mind">mind!</NavLink>

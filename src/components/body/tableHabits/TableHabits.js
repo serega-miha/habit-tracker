@@ -4,7 +4,9 @@ import CheckBox from '../checkBox/checkBox';
 import { today, countDaysOfMonth } from '../../../dataBase/daysMonths/daysAndMonths';
 
 import JsonBin from '../../../service/request/JsonBin';
-import renderHabitsNew from './renderHabits';
+
+
+
 
 const TableHabits = (props) => {
 
@@ -21,8 +23,8 @@ const TableHabits = (props) => {
         // console.log(numDataBase);
         // console.log(dataId);
         const filterDataBase = props.dataBase.filter((item) => item.id === numDataBase)[0];
-    //  console.log(filterDataBase);
-     
+        //  console.log(filterDataBase);
+
         const status = filterDataBase.results.filter((item) => item.dateDay === dataId)[0].status;
         // console.log(status);
         let newStatus;
@@ -84,10 +86,10 @@ const TableHabits = (props) => {
 
 
     function renderHabitsNew(arr, todayYear, todayMonth) {
-        const countDaysOfMonth = 32 - new Date(todayYear, todayMonth , 32).getDate();
+        const countDaysOfMonth = 32 - new Date(todayYear, todayMonth, 32).getDate();
         // console.log('function is working');
-    
-    
+
+
         const habitRow = arr.map((item, j) => {
             // const startYear = new Date(item.startDate).getFullYear();
             // const finishYear = new Date(item.finishDate).getFullYear();
@@ -95,83 +97,245 @@ const TableHabits = (props) => {
             // const finishMonth = new Date(item.finishDate).getMonth() + 1;
             // const startDay = new Date(item.startDate).getDate();
             // const finishDay = new Date(item.finishDate).getDate();
-    
+
             const habitDaysArr = item.results.filter((el) => new Date(el.dateDay).getMonth() === +todayMonth);
-    
-            let statusNull = 0;
-            let statusRed = 0;
-            let statusGood = 0;
-            let statusStop = 0;
-            let statusDisabled = 0;
+
 
             if (habitDaysArr.length > 0) {
-                 // const newHabitDaysArr = habitDaysArr
-            const itemStartDay = new Date(habitDaysArr[0].dateDay).getDate() - 1;
-    
-    
-    
-            const habitDaysDisable = Array.from({ length: itemStartDay }, (el, i) => {
-                return (
-                    <li key={i} className="list-day block-empty"
-    
-                    ><CheckBox
-                            status={0}
-                            disable={"disabled"}
-                            
-                        /></li>
-                )
-            })
-            const habitsDaysActive = habitDaysArr.map((el, i) => {
-                return (
-                    <li key={i} className="list-day block-empty"
-                    dataId =  {el.dateDay}
-                    onClick = {() => onChangeStatus(item.id, el.dateDay)}
-                    ><CheckBox
-                            status={el.status}
-                            date={item.startDate}
-                            
-                            disable={""}
-                            
-                        /></li>
-                )
-            })
-           
-            function onDeleteHabit(event) {
-                let idHabit = event.getAttribute('habit-id');
-                newRequest.deleteResource(idHabit);
-                props.renderAfterAdd();
-            }
+                // const newHabitDaysArr = habitDaysArr
+                const itemStartDay = new Date(habitDaysArr[0].dateDay).getDate() - 1;
 
-            const percent = (statusGood / ((statusRed + statusStop + statusNull + statusGood) - statusDisabled) * 100).toFixed(1);
-    
-    
-            return (
-                <div className="habits__row-name " key={item.id}>
-                    <div className="habits__need block-empty name__habit">{item.count}</div>
-                    <div className="habits__name block-empty name__habit">{item.nameHabit}</div>
-                    <ul className="habits__list-days ">
-                        {habitDaysDisable}
-                        {habitsDaysActive}
-           
-                    </ul>
-    
-                    <div className="habits__percent block-empty">{percent}%</div>
-                    <a onClick={(e) => onDeleteHabit(e.target)} className="habit__delete" habit-id={item.id}>Удалить</a>
-                </div>
-            )
+
+
+                const justClassName = 'list-day block-empty';
+                const todayClassName = 'list-day block-empty block-empty__active'
+                const borderClassName = 'list-day block-empty block-empty__border'
+
+                const statusArr = [];
+                let j = 0;
+                const habitDaysDisable = Array.from({ length: itemStartDay }, (el, i) => {
+                    j++;
+                    statusArr[j] = 0;
+                    return (
+                        <li key={j}
+                            //это сделано для выделения сегодня стилями
+                            className={today.getDate() === j && today.getMonth() === props.selectedMonth - 1 ? todayClassName : justClassName}
+
+                        ><CheckBox
+                                status={0}
+                                disable={"disabled"}
+
+                            /></li>
+                    )
+                })
+
+                const habitsDaysActive = habitDaysArr.map((el, i) => {
+                    j++;
+                    if (today.getMonth() === props.selectedMonth - 1) {
+                        if (today.getDate() > 3 && j < today.getDate() - 3) {
+                            //время прошло кнопа disable
+                            statusArr[j] = el.status === 1 ? 3 : el.status;
+                            return (
+                                <li key={j}
+                                    //это сделано для выделения сегодня стилями
+                                    className={justClassName}
+
+                                    dataId={el.dateDay}
+                                    onClick={() => onChangeStatus(item.id, el.dateDay)}
+                                ><CheckBox
+                                        status={el.status === 1 ? 3 : el.status}
+                                        date={item.startDate}
+
+                                        disable={"disabled"}
+
+                                    /></li>
+                            )
+                        } else if (today.getDate() - 3 === j) {
+                            //граница 3 дня, проверка прошлой границы
+                            statusArr[j] = el.status
+                            return (
+                                <li key={j}
+                                    //это сделано для выделения сегодня стилями
+                                    className={borderClassName}
+
+                                    dataId={el.dateDay}
+                                    onClick={() => onChangeStatus(item.id, el.dateDay)}
+                                ><CheckBox
+                                        status={el.status}
+                                        date={item.startDate}
+
+                                        disable={""}
+
+                                    /></li>
+                            )
+                        } else if (today.getDate() === j) {
+                            //рендес сегодня с белой тенью
+                            statusArr[j] = el.status
+                            return (
+                                <li key={j}
+                                    //это сделано для выделения сегодня стилями
+                                    className={todayClassName}
+
+                                    dataId={el.dateDay}
+                                    onClick={() => onChangeStatus(item.id, el.dateDay)}
+                                ><CheckBox
+                                        status={el.status}
+                                        date={item.startDate}
+
+                                        disable={""}
+
+                                    /></li>
+                            )
+                        } else {
+                            //все остальные блоки
+                            statusArr[j] = el.status
+                            return (
+                                <li key={j}
+                                    //это сделано для выделения сегодня стилями
+                                    className={today.getDate() === j && today.getMonth() === props.selectedMonth - 1 ? todayClassName : justClassName}
+
+                                    dataId={el.dateDay}
+                                    onClick={() => onChangeStatus(item.id, el.dateDay)}
+                                ><CheckBox
+                                        status={el.status}
+                                        date={item.startDate}
+
+                                        disable={""}
+
+                                    /></li>
+                            )
+                        }
+                    } else {
+                        //рендер остальных месяцев
+                        j++;
+                        return (
+                            <li key={j}
+                                //это сделано для выделения сегодня стилями
+                                className={justClassName}
+
+                                dataId={el.dateDay}
+                                onClick={() => onChangeStatus(item.id, el.dateDay)}
+                            ><CheckBox
+                                    status={el.status}
+                                    date={item.startDate}
+
+                                    disable={"disabled"}
+
+                                /></li>
+                        )
+                    }
+
+
+                })
+
+
+                const habitDaysAdd = Array.from({ length: 1 }, (el, i) => {
+                    return (
+                        
+                        <li key={j}
+                        //это сделано для выделения сегодня стилями
+                        className='list-day block-empty'
+
+                                              
+                    ><button>настройки</button></li>
+                    )
+                })
+
+                // console.log(statusArr);
+                // console.log(statusArr.slice(1,today.getDate() + 1));
+
+
+                function calculPercent(arr, todayDate) {
+                    let newArr = arr.slice(1, todayDate + 1);
+                    let goodBlock = newArr.filter(item => item === 2);
+                    let allBlock = newArr.filter(item => item > 0);
+                    let percent = (goodBlock.length / allBlock.length) * 100;
+                    if (allBlock.length > 0) {
+                        return percent.toFixed(0) + '%'
+                    } else {
+                        return 'нет данных'
+                    }
+
+                }
+
+
+
+                // const habitsDays = [...habitDaysDisable, ...habitsDaysActive];
+                function createHabitDays(arr1, arr2, arr3) {
+                    let habitsArr = []
+                    if ((arr1.length + arr2.length) >= countDaysOfMonth) {
+                        habitsArr = [...arr1, ...arr2]
+                    } else {
+                        habitsArr = [...arr1, ...arr2, ...arr3]
+                    }
+                    return habitsArr;
+                }
+                // createHabitDays(habitDaysDisable, habitsDaysActive, habitDaysAdd)
+
+                // console.log(arrForPercent);
+
+
+                // const habitsDaysActive = habitDaysArr.map((el, i) => {
+                //     j++;
+                //     return (
+                //         <li key={j} 
+                //         //это сделано для выделения сегодня стилями
+                //         className={today.getDate() === j && today.getMonth() === props.selectedMonth - 1 ? todayClassName : justClassName}
+
+                //         dataId =  {el.dateDay}
+                //         onClick = {() => onChangeStatus(item.id, el.dateDay)}
+                //         ><CheckBox
+                //                 status={el.status}
+                //                 date={item.startDate}
+
+                //                 disable={""}
+
+                //             /></li>
+                //     )
+                // })
+
+
+
+
+                function onDeleteHabit(event) {
+                    let idHabit = event.getAttribute('habit-id');
+                    newRequest.deleteResource(idHabit);
+                    props.renderAfterAdd();
+                }
+
+                const percent = calculPercent(statusArr, today.getDate());
+                const habitsDays = createHabitDays(habitDaysDisable, habitsDaysActive, habitDaysAdd);
+
+
+                j = 0;
+                return (
+                    <div className="habits__row-name " key={item.id}>
+                        <div className="habits__need block-empty name__habit">{item.count}</div>
+                        <div className="habits__name block-empty name__habit"><p>{item.nameHabit}</p></div>
+                        <ul className="habits__list-days ">
+                            {habitsDays}
+                            {/* {habitDaysDisable}
+                        {habitsDaysActive} */}
+
+                        </ul>
+
+                        <div className="habits__percent block-empty">{percent}</div>
+                        <a href="#" onClick={(e) => onDeleteHabit(e.target)} className="NavLink__month" habit-id={item.id}>Удалить</a>
+                    </div>
+                )
             } else {
                 return null;
             }
-    
-           
-    
+
+
+
         })
         return habitRow
-    
+
     }
 
 
-// renderHabitsNew(props.dataBase, '2024', '02');
+    // renderHabitsNew(props.dataBase, '2024', '02');
 
 
     // const habitRow = renderHabits(props.dataBase)
