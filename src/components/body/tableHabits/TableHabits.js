@@ -4,12 +4,42 @@ import CheckBox from '../checkBox/checkBox';
 import { today, countDaysOfMonth } from '../../../dataBase/daysMonths/daysAndMonths';
 
 import JsonBin from '../../../service/request/JsonBin';
-import ModalWindow from '../addHabit/AddHabit';
+import Modal from '../../Modal/Modal';
+import { useState, useEffect } from 'react';
+import EditHabit from '../editHabit/EditHabit';
 
 
 
 
 const TableHabits = (props) => {
+
+    const [openModalEdit, setOpenModalEdit] = useState(false)
+    const [openModalEditId, setOpenModalEditId] = useState('')
+
+    function renderModalWindow(bool){
+    const modalEditHabit = <Modal
+    active={openModalEdit}
+    setActive={setOpenModalEdit}
+        // habitId={item.id}
+        >
+            <EditHabit
+            dataBase={props.dataBase}
+            idDataBase={openModalEditId}
+            />
+            <h2>{openModalEditId}</h2>
+        </Modal>
+       if (bool) {
+        return modalEditHabit
+    }else{
+        return null
+    }
+    }
+    //сделал чтобы модальное окно исчезало из ДОМ дерева, когда его закрываешь!
+    useEffect(() => {
+        renderModalWindow(openModalEdit) 
+    }, [])
+
+
 
 
     // const today = new Date();
@@ -308,17 +338,19 @@ const TableHabits = (props) => {
                 const habitsDays = createHabitDays(habitDaysDisable, habitsDaysActive, habitDaysAdd);
 
 
+             
+                function pushButton(bool, number){
+                    setOpenModalEdit(bool)
+                    setOpenModalEditId(number)
+                }
+
+
                 j = 0;
                 return (
                     <div className="habits__row-name " key={item.id} >
                         <div className="habits__need block-empty name__habit">
-                            {/* <button className='my-btn' habit-id={item.id}>Редактировать</button> */}
-                            <ModalWindow
-                                nameTrigger="Редактировать!"
-                                renderAfterAdd={props.renderAfterAdd}
-                                dataBase={props.dataBase}
-                                habitId={item.id}
-                            />
+                            <button className='my-btn' habit-id={item.id} onClick={() => pushButton(true, item.id)}>Редактировать</button>
+                            {renderModalWindow(openModalEdit)}
                         </div>
                         <div className="habits__name block-empty name__habit"><p>{item.nameHabit}</p></div>
                         <ul className="habits__list-days ">

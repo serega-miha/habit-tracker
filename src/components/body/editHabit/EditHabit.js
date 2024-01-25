@@ -1,6 +1,6 @@
 
-import YocReactDatePicker from '../calendar/Calendar';
-import './addHabit.scss';
+
+import './editHait.scss';
 import JsonBin from '../../../service/request/JsonBin';
 import { Formik, Form, Field, useFormikContext, ErrorMessage } from 'formik';
 import { todayDate, countDaysOfMonth } from '../../../dataBase/daysMonths/daysAndMonths';
@@ -8,15 +8,16 @@ import DatePickerCalenar from '../datePacker/DatePicker';
 import * as Yup from 'yup';
 import { useState, useEffect } from 'react';
 
-const AddHabit = (props) => {
+const EditHabit = (props) => {
+    const [idReander, setIdRender] = useState(props.idDataBase);
     const [numberOfDayPerWeek, setNumberOfDayPerWeek] = useState(3);
 
 
-    // const modalBataBase = props.dataBase.filter(item => item.id === props.habitId)[0];
-    // console.log(modalBataBase);
-    // useEffect(() => {
-    //     console.log(numberOfDayPerWeek, 'now = ');
-    // }, [numberOfDayPerWeek])
+    const modalDataBase = props.dataBase.filter(item => item.id === props.idDataBase)[0];
+
+    useEffect(() => {
+            console.log(modalDataBase);
+    }, [idReander])
 
     const newRequest = new JsonBin();
 
@@ -71,11 +72,21 @@ const AddHabit = (props) => {
             countRepeatDays,
             results
         }
-        // console.log(newDataBaseItem);
-        newRequest.postResource(newDataBaseItem)
-        props.renderAfterAdd()
-        props.setOpenModalCreate(false)
+        console.log(newDataBaseItem);
+        // newRequest.postResource(newDataBaseItem)
+        // props.renderAfterAdd()
+        // props.setOpenModalCreate(false)
     }
+
+
+
+    /////////
+    const renderStartDate = new Date(modalDataBase.startDate).getFullYear() + '.' + (new Date(modalDataBase.startDate).getMonth() + 1) + "." + new Date(modalDataBase.startDate).getDate();
+    const renderFinishDate = new Date(modalDataBase.finishDate).getFullYear() + '.' + (new Date(modalDataBase.finishDate).getMonth() + 1) + "." + new Date(modalDataBase.finishDate).getDate();
+    // console.log(renderStartDate.getFullYear() + '.' + (renderStartDate.getMonth() + 1) + "." + renderStartDate.getDate());
+    // console.log(renderStartDate);
+    
+    ///////////
 
 
     return (
@@ -84,11 +95,11 @@ const AddHabit = (props) => {
                 <Formik
 
                     initialValues={{
-                        name: "",
-                        countOfWeek: 3,
-                        repeatDays: ["1", "3", "5"],
-                        startDate: "",
-                        countWeeks: 1
+                        name: modalDataBase.nameHabit,
+                        countOfWeek: modalDataBase.countOfWeek,
+                        repeatDays: modalDataBase.nameRepeatDays,
+                        startDate: new Date(modalDataBase.startDate),
+                        countWeeks: 0
 
                     }}
 
@@ -183,25 +194,18 @@ const AddHabit = (props) => {
                                     {errors.repeatDays && touched.repeatDays ? <div className='input-error'>нужно {numberOfDayPerWeek} галочек</div> : null}
 
                                 </div>
-                                <div className="form-add__habit-item add__habit-date__start">
-                                    <label><h4>Дата начала привычки</h4>
-                                    </label>
-                                    <DatePickerCalenar
-                                        // setFieldValue={new Date()}
-                                        name="startDate"
-                                        // minDate={new Date()}
-                                        placeholderText='01.01.2000'
-                                        // defaultValue={new Date()}
-                                        dateFormat="dd.MM.yyyy"
-                                        autoComplete='off'
-                                        className={errors.name && touched.name ? "input-error" : null}
-
-
-                                    />
-
+                               
+                               
+                                <div className="form-add__habit-item ">
+                                   <h3>Дата начала: {renderStartDate}</h3>
                                 </div>
-                                <div className="form-add__habit-item add__habit-count__weeks">
-                                    <label className='add-label' htmlFor="countWeeks"><h4>Количество недель</h4>
+                                <div className="form-add__habit-item ">
+                                   <h3>Дата окончания: {renderFinishDate}</h3>
+                                </div>
+
+                            </div>
+                            <div className="form-add__habit-item add__habit-count__weeks">
+                                    <label className='add-label' htmlFor="countWeeks"><h4>На сколько недель вы хотите продлить?</h4>
                                     </label>
                                     <Field type="number"
                                         id="countWeeks"
@@ -211,7 +215,6 @@ const AddHabit = (props) => {
 
                                     />
                                 </div>
-                            </div>
                             <div className="form-submit">
                                 <button type="submit"
                                     className='form-btn'
@@ -229,35 +232,7 @@ const AddHabit = (props) => {
     )
 }
 
-// function ModalWindow(props) {
-//     const [showModal, setShowModal] = useState(false)
 
 
-//     if (showModal) {
-//         // console.log(props.dataBase);
-//         // console.log(props.habitId);  
-//     }
 
-//     const modalAdd = showModal ?
-//         <AddHabit
-//             showModal={showModal}
-//             onClose={setShowModal}
-//             dataBase={props.dataBase}
-//             habitId={props.habitId}
-//             renderAfterAdd={props.renderAfterAdd}
-//             nameSubmit={props.nameTrigger === 'Создать' ? 'Создать' : "Сохранить изменения"}
-//         />
-//         : null;
-//     return (
-//         <>
-//             {modalAdd}
-//             <button
-//                 type="button"
-//                 className="my-btn"
-//                 onClick={() => setShowModal(true)}>{props.nameTrigger}</button>
-//         </>
-//     )
-// }
-
-
-export default AddHabit;
+export default EditHabit;

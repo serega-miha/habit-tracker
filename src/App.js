@@ -16,7 +16,7 @@ import Modal from './components/Modal/Modal';
 
 function App() {
 
-  const [modalActive, setModalActive] = useState(true)
+  // const [modalActive, setModalActive] = useState(true)
   // const [dataBase, setDataBase] = useState(dataBaseOfHabits.data)
 
   // let request = new JsonBin();
@@ -59,11 +59,11 @@ function App() {
 
 
           </Routes>
-          <button onClick={() => setModalActive(true)}>open modal window</button>
+          {/* <button onClick={() => setModalActive(true)}>open modal window</button>
           <Modal active={modalActive} setActive={setModalActive}>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi reprehenderit harum omnis, modi fugiat quasi. Voluptates est saepe voluptas, neque dolore accusamus ipsam repellat aspernatur veritatis omnis facere aliquid reprehenderit?</p>
             <h3>12313213</h3>
-          </Modal>
+          </Modal> */}
         </main>
         <footer className='footer'>
           <h2>Footer</h2>

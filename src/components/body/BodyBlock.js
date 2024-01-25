@@ -20,10 +20,31 @@ const BodyBlock = () => {
     const [nameSelectedMonth, setNameSelectedMonth] = useState('January')
     const [selectedFullYear, setSelectedFullYear] = useState("2024")
 
-
-    const [openModal, setOpenModal]= useState(false)
-
+//создал для создания модального окна
+    const [openModalCreate, setOpenModalCreate] = useState(false)
+    function renderModalWindow(bool){
+        const modalCreateHabit = <Modal
+        active={openModalCreate}
+        setActive={setOpenModalCreate}
+    >
+        <AddHabit
+            renderAfterAdd={renderAfterAdd}
+            setOpenModalCreate={setOpenModalCreate}
+        />
+    </Modal>
+    if (bool) {
+        return modalCreateHabit
+    }else{
+        return null
+    }
+    }
     
+//сделал чтобы модальное окно исчезало из ДОМ дерева, когда его закрываешь!
+    useEffect(() => {
+        renderModalWindow(openModalCreate) 
+    }, [])
+
+
     const renderAfterAdd = () => {
         setCount(count + 1)
     }
@@ -60,21 +81,21 @@ const BodyBlock = () => {
 
     const linkMonths = monthsEng.map((item, i) => {
 
-        if (today.getMonth() + 1 === i){
+        if (today.getMonth() + 1 === i) {
 
         }
-       
+
         return (
             <li
                 className="item__month"
             >
                 <NavLink
-                    to={"/"+item}
+                    to={"/" + item}
                     // className="NavLink__month"
-                    onClick = {() => updateMonth(i+1, item)}
+                    onClick={() => updateMonth(i + 1, item)}
                     className={({ isActive }) =>
-                   isActive ? "NavLink__month active" : "NavLink__month"
-                  }
+                        isActive ? "NavLink__month active" : "NavLink__month"
+                    }
                 >
                     {monthRus[i]}
                 </NavLink>
@@ -82,16 +103,19 @@ const BodyBlock = () => {
         )
     })
 
+
+
+
     return (
 
         <div className="body-container">
             <ul className="list__month">
-     
-                    {linkMonths}
+
+                {linkMonths}
             </ul>
             {/* <Outlet/> */}
             <Routes>
-                <Route path={'/'+nameSelectedMonth}
+                <Route path={'/' + nameSelectedMonth}
                     element={<BlockTable
                         selectedMonth={selectedMonth}
                         selectedFullYear={selectedFullYear}
@@ -106,19 +130,14 @@ const BodyBlock = () => {
 
             </Routes>
             <div className="create-habit">
-                        {/* <ModalWindow
+                {/* <ModalWindow
                         nameTrigger='Создать'
                         renderAfterAdd={renderAfterAdd}
                         // dataBase={dataBase}
                         
                         /> */}
-                        <button onClick={() => setOpenModal(true)}>Create</button>
-                        <Modal
-                        active={openModal}
-                        setActive={setOpenModal}
-                        >
-                            <h2>jryjlheujt</h2>
-                        </Modal>
+                <button className='my-btn' onClick={() => setOpenModalCreate(true)}>Создать</button>
+                {renderModalWindow(openModalCreate)} 
             </div>
         </div>
 
