@@ -163,7 +163,7 @@ const TableHabits = (props) => {
                             /></li>
                     )
                 })
-
+                //рендер блоков
                 const habitsDaysActive = habitDaysArr.map((el, i) => {
                     j++;
                     if (today.getMonth() === props.selectedMonth - 1) {
@@ -242,9 +242,9 @@ const TableHabits = (props) => {
                         }
                     } else {
                         //рендер остальных месяцев
-                        j++;
+                        // j++;
                         return (
-                            <li key={j}
+                            <li key={i}
                                 //это сделано для выделения сегодня стилями
                                 className={justClassName}
 
@@ -272,7 +272,10 @@ const TableHabits = (props) => {
                             className='list-day block-empty'
 
 
-                        ><button className='my-btn'>Продлить</button></li>
+                        >
+                             <button className='my-btn' habit-id={item.id} onClick={() => pushButton(true, item.id)}>Продлить</button>
+                            {renderModalWindow(openModalEdit)}
+                        </li>
                     )
                 })
 
@@ -340,8 +343,7 @@ const TableHabits = (props) => {
 
                 const percent = calculPercent(statusArr, today.getDate());
                 const habitsDays = createHabitDays(habitDaysDisable, habitsDaysActive, habitDaysAdd);
-
-
+                console.log(habitsDays);
              
                 function pushButton(bool, number){
                     setOpenModalEdit(bool)

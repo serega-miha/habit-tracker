@@ -144,7 +144,7 @@ const EditHabit = (props) => {
                         countOfWeek: modalDataBase.countOfWeek,
                         repeatDays: modalDataBase.nameRepeatDays,
                         // startDate: new Date(modalDataBase.startDate),
-                        countWeeks: 0
+                        countWeeks: 1
 
                     }}
 
@@ -266,7 +266,8 @@ const EditHabit = (props) => {
                                     className='form-btn'
                                 //  disabled={isSubmitting}
                                 >Сохранить изменения</button>
-                                <button className='my-btn' onClick={() => props.setOpenModalCreate(false)}>Закрыть</button>
+                                <button className='my-btn' onClick={() => props.setOpenModalEdit(false)}>Закрыть</button>
+                               
                             </div>
                         </Form>
                     )}

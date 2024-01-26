@@ -78,7 +78,7 @@
         },
         {
           "dateDay": 1706255682000,
-          "status": 1
+          "status": 2
         },
         {
           "dateDay": 1706342082000,
@@ -533,147 +533,147 @@
       "id": 3
     },
     {
-      "nameHabit": "1233",
+      "nameHabit": "qwerty123",
       "countOfWeek": "7",
       "nameRepeatDays": [
         "1",
         "3",
-        "5",
         "2",
         "4",
+        "5",
         "6",
         "0"
       ],
-      "startDate": "2024-01-01T10:46:56.000Z",
-      "finishDate": "2024-02-02T10:47:09.871Z",
+      "startDate": "2024-01-01T11:31:50.000Z",
+      "finishDate": "2024-02-02T11:32:12.536Z",
       "countRepeatDays": 7,
       "results": [
         {
-          "dateDay": 1704106016000,
+          "dateDay": 1704108710000,
           "status": 1
         },
         {
-          "dateDay": 1704192416000,
+          "dateDay": 1704195110000,
           "status": 0
         },
         {
-          "dateDay": 1704278816000,
+          "dateDay": 1704281510000,
           "status": 1
         },
         {
-          "dateDay": 1704365216000,
+          "dateDay": 1704367910000,
           "status": 0
         },
         {
-          "dateDay": 1704451616000,
-          "status": 1
-        },
-        {
-          "dateDay": 1704538016000,
+          "dateDay": 1704454310000,
           "status": 0
         },
         {
-          "dateDay": 1704624416000,
+          "dateDay": 1704540710000,
           "status": 0
         },
         {
-          "dateDay": 1704710816000,
+          "dateDay": 1704627110000,
           "status": 0
         },
         {
-          "dateDay": 1704797216000,
+          "dateDay": 1704713510000,
           "status": 0
         },
         {
-          "dateDay": 1704883616000,
+          "dateDay": 1704799910000,
           "status": 0
         },
         {
-          "dateDay": 1704970016000,
+          "dateDay": 1704886310000,
           "status": 0
         },
         {
-          "dateDay": 1705056416000,
+          "dateDay": 1704972710000,
           "status": 0
         },
         {
-          "dateDay": 1705142816000,
+          "dateDay": 1705059110000,
           "status": 0
         },
         {
-          "dateDay": 1705229216000,
+          "dateDay": 1705145510000,
           "status": 0
         },
         {
-          "dateDay": 1705315616000,
+          "dateDay": 1705231910000,
           "status": 0
         },
         {
-          "dateDay": 1705402016000,
+          "dateDay": 1705318310000,
           "status": 0
         },
         {
-          "dateDay": 1705488416000,
+          "dateDay": 1705404710000,
           "status": 0
         },
         {
-          "dateDay": 1705574816000,
+          "dateDay": 1705491110000,
           "status": 0
         },
         {
-          "dateDay": 1705661216000,
+          "dateDay": 1705577510000,
           "status": 0
         },
         {
-          "dateDay": 1705747616000,
+          "dateDay": 1705663910000,
           "status": 0
         },
         {
-          "dateDay": 1705834016000,
+          "dateDay": 1705750310000,
           "status": 0
         },
         {
-          "dateDay": 1705920416000,
+          "dateDay": 1705836710000,
           "status": 0
         },
         {
-          "dateDay": 1706006816000,
+          "dateDay": 1705923110000,
           "status": 0
         },
         {
-          "dateDay": 1706093216000,
+          "dateDay": 1706009510000,
           "status": 0
         },
         {
-          "dateDay": 1706179616000,
+          "dateDay": 1706095910000,
           "status": 0
         },
         {
-          "dateDay": 1706266029872,
-          "status": 1
+          "dateDay": 1706182310000,
+          "status": 0
         },
         {
-          "dateDay": 1706352429872,
-          "status": 1
+          "dateDay": 1706268732537,
+          "status": 2
         },
         {
-          "dateDay": 1706438829872,
-          "status": 1
+          "dateDay": 1706355132537,
+          "status": 0
         },
         {
-          "dateDay": 1706525229872,
-          "status": 1
+          "dateDay": 1706441532537,
+          "status": 0
         },
         {
-          "dateDay": 1706611629872,
-          "status": 1
+          "dateDay": 1706527932537,
+          "status": 0
         },
         {
-          "dateDay": 1706698029872,
-          "status": 1
+          "dateDay": 1706614332537,
+          "status": 0
         },
         {
-          "dateDay": 1706784429872,
+          "dateDay": 1706700732537,
+          "status": 0
+        },
+        {
+          "dateDay": 1706787132537,
           "status": 1
         }
       ],

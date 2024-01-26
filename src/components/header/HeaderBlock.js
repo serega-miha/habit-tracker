@@ -12,7 +12,9 @@ const HeaderBlock = () => {
                 <NavLink
                     
                     style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" })}
-                    to={'/'+ monthsEng[today.getMonth()]} className="header__mind">habit</NavLink>
+                    to={'/'+ monthsEng[today.getMonth()]}
+                    // to='/'
+                    className="header__mind">habit</NavLink>
                 <NavLink
                     style={({ isActive }) => ({ textDecoration: isActive ? "underline" : "none" })}
                     to="/mind" className="header__mind">mind!</NavLink>
