@@ -18,13 +18,17 @@ const TableHabits = (props) => {
 
     function renderModalWindow(bool){
     const modalEditHabit = <Modal
+    
     active={openModalEdit}
     setActive={setOpenModalEdit}
         // habitId={item.id}
         >
             <EditHabit
+            onUpdateDataBaseLoaded={props.onUpdateDataBaseLoaded}
             dataBase={props.dataBase}
             idDataBase={openModalEditId}
+            setOpenModalEdit={setOpenModalEdit}
+            renderAfterAdd={props.renderAfterAdd}
             />
             <h2>{openModalEditId}</h2>
         </Modal>

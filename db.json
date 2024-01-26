@@ -66,7 +66,7 @@
         },
         {
           "dateDay": 1705996482000,
-          "status": 0
+          "status": 2
         },
         {
           "dateDay": 1706082882000,
@@ -339,7 +339,7 @@
         },
         {
           "dateDay": 1705996482000,
-          "status": 0
+          "status": 2
         },
         {
           "dateDay": 1706082882000,
@@ -533,458 +533,151 @@
       "id": 3
     },
     {
-      "nameHabit": "kurlik",
-      "countOfWeek": 3,
-      "nameRepeatDays": [
-        "1",
-        "5",
-        "3"
-      ],
-      "startDate": "2024-01-03T08:46:34.000Z",
-      "finishDate": "2024-01-10T08:46:34.000Z",
-      "countRepeatDays": 7,
-      "results": [
-        {
-          "dateDay": 1704271594000,
-          "status": 1
-        },
-        {
-          "dateDay": 1704357994000,
-          "status": 0
-        },
-        {
-          "dateDay": 1704444394000,
-          "status": 1
-        },
-        {
-          "dateDay": 1704530794000,
-          "status": 0
-        },
-        {
-          "dateDay": 1704617194000,
-          "status": 0
-        },
-        {
-          "dateDay": 1704703594000,
-          "status": 1
-        },
-        {
-          "dateDay": 1704789994000,
-          "status": 0
-        }
-      ],
-      "id": 17
-    },
-    {
-      "nameHabit": "qwerty",
-      "countOfWeek": 3,
-      "nameRepeatDays": [
-        "1",
-        "3",
-        "5"
-      ],
-      "startDate": "2024-01-15T08:46:34.000Z",
-      "finishDate": "2024-02-05T08:46:34.000Z",
-      "countRepeatDays": 21,
-      "results": [
-        {
-          "dateDay": 1705308394000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705394794000,
-          "status": 0
-        },
-        {
-          "dateDay": 1705481194000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705567594000,
-          "status": 0
-        },
-        {
-          "dateDay": 1705653994000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705740394000,
-          "status": 0
-        },
-        {
-          "dateDay": 1705826794000,
-          "status": 0
-        },
-        {
-          "dateDay": 1705913194000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705999594000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706085994000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706172394000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706258794000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706345194000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706431594000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706517994000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706604394000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706690794000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706777194000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706863594000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706949994000,
-          "status": 0
-        },
-        {
-          "dateDay": 1707036394000,
-          "status": 0
-        }
-      ],
-      "id": 18
-    },
-    {
-      "nameHabit": "kurlik",
-      "countOfWeek": "1",
-      "nameRepeatDays": [
-        "1"
-      ],
-      "startDate": "2024-01-18T13:48:40.000Z",
-      "finishDate": "2024-02-08T13:48:40.000Z",
-      "countRepeatDays": 21,
-      "results": [
-        {
-          "dateDay": 1705585720000,
-          "status": 0
-        },
-        {
-          "dateDay": 1705672120000,
-          "status": 0
-        },
-        {
-          "dateDay": 1705758520000,
-          "status": 0
-        },
-        {
-          "dateDay": 1705844920000,
-          "status": 0
-        },
-        {
-          "dateDay": 1705931320000,
-          "status": 2
-        },
-        {
-          "dateDay": 1706017720000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706104120000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706190520000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706276920000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706363320000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706449720000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706536120000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706622520000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706708920000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706795320000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706881720000,
-          "status": 0
-        },
-        {
-          "dateDay": 1706968120000,
-          "status": 0
-        },
-        {
-          "dateDay": 1707054520000,
-          "status": 0
-        },
-        {
-          "dateDay": 1707140920000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707227320000,
-          "status": 0
-        },
-        {
-          "dateDay": 1707313720000,
-          "status": 0
-        }
-      ],
-      "id": 19
-    },
-    {
-      "nameHabit": "ashot",
+      "nameHabit": "1233",
       "countOfWeek": "7",
       "nameRepeatDays": [
         "1",
         "3",
         "5",
-        "0",
-        "6",
+        "2",
         "4",
-        "2"
+        "6",
+        "0"
       ],
-      "startDate": "2024-01-02T14:14:12.000Z",
-      "finishDate": "2024-02-20T14:14:12.000Z",
-      "countRepeatDays": 49,
+      "startDate": "2024-01-01T10:46:56.000Z",
+      "finishDate": "2024-02-02T10:47:09.871Z",
+      "countRepeatDays": 7,
       "results": [
         {
-          "dateDay": 1704204852000,
+          "dateDay": 1704106016000,
           "status": 1
         },
         {
-          "dateDay": 1704291252000,
+          "dateDay": 1704192416000,
+          "status": 0
+        },
+        {
+          "dateDay": 1704278816000,
           "status": 1
         },
         {
-          "dateDay": 1704377652000,
+          "dateDay": 1704365216000,
+          "status": 0
+        },
+        {
+          "dateDay": 1704451616000,
           "status": 1
         },
         {
-          "dateDay": 1704464052000,
+          "dateDay": 1704538016000,
+          "status": 0
+        },
+        {
+          "dateDay": 1704624416000,
+          "status": 0
+        },
+        {
+          "dateDay": 1704710816000,
+          "status": 0
+        },
+        {
+          "dateDay": 1704797216000,
+          "status": 0
+        },
+        {
+          "dateDay": 1704883616000,
+          "status": 0
+        },
+        {
+          "dateDay": 1704970016000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705056416000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705142816000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705229216000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705315616000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705402016000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705488416000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705574816000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705661216000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705747616000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705834016000,
+          "status": 0
+        },
+        {
+          "dateDay": 1705920416000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706006816000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706093216000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706179616000,
+          "status": 0
+        },
+        {
+          "dateDay": 1706266029872,
           "status": 1
         },
         {
-          "dateDay": 1704550452000,
+          "dateDay": 1706352429872,
           "status": 1
         },
         {
-          "dateDay": 1704636852000,
+          "dateDay": 1706438829872,
           "status": 1
         },
         {
-          "dateDay": 1704723252000,
+          "dateDay": 1706525229872,
           "status": 1
         },
         {
-          "dateDay": 1704809652000,
+          "dateDay": 1706611629872,
           "status": 1
         },
         {
-          "dateDay": 1704896052000,
+          "dateDay": 1706698029872,
           "status": 1
         },
         {
-          "dateDay": 1704982452000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705068852000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705155252000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705241652000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705328052000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705414452000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705500852000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705587252000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705673652000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705760052000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705846452000,
-          "status": 1
-        },
-        {
-          "dateDay": 1705932852000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706019252000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706105652000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706192052000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706278452000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706364852000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706451252000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706537652000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706624052000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706710452000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706796852000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706883252000,
-          "status": 1
-        },
-        {
-          "dateDay": 1706969652000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707056052000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707142452000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707228852000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707315252000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707401652000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707488052000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707574452000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707660852000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707747252000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707833652000,
-          "status": 1
-        },
-        {
-          "dateDay": 1707920052000,
-          "status": 1
-        },
-        {
-          "dateDay": 1708006452000,
-          "status": 1
-        },
-        {
-          "dateDay": 1708092852000,
-          "status": 1
-        },
-        {
-          "dateDay": 1708179252000,
-          "status": 1
-        },
-        {
-          "dateDay": 1708265652000,
-          "status": 1
-        },
-        {
-          "dateDay": 1708352052000,
+          "dateDay": 1706784429872,
           "status": 1
         }
       ],
-      "id": 20
+      "id": 4
     }
   ]
 }

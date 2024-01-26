@@ -17,12 +17,17 @@ const EditHabit = (props) => {
 
     useEffect(() => {
             console.log(modalDataBase);
+            // console.log((new Date().getTime()/1000/60/60/24).toFixed(0), (new Date(modalDataBase.finishDate).getTime()/1000/60/60/24).toFixed(0));
+
+            // console.log((modalDataBase.results.slice(11).length));
     }, [idReander])
 
     const newRequest = new JsonBin();
 
 
-    const onSubmit = (values) => {
+   
+
+    function onSubmit(values){
 
         //имя
         const nameHabit = values.name;
@@ -31,13 +36,14 @@ const EditHabit = (props) => {
         //дни повторений в неделю //['1', '3', '5']
         const nameRepeatDays = values.repeatDays;
         //дата начала
-        const startDate = values.startDate;
+        const startDate = modalDataBase.startDate;
         //количество повт орений в днях
         const countRepeatDays = values.countWeeks * 7;
         //дата окончания
-        const finishDate = new Date(new Date(startDate).getTime() + new Date(countRepeatDays * 24 * 60 * 60 * 1000).getTime());
+        const finishDate = (new Date().getTime()/1000/60/60/24).toFixed(0) > (new Date(modalDataBase.finishDate).getTime()/1000/60/60/24).toFixed(0) ? 
+        new Date(new Date().getTime() + new Date(countRepeatDays * 24 * 60 * 60 * 1000).getTime()) : new Date(new Date(modalDataBase.finishDate).getTime() + new Date(countRepeatDays * 24 * 60 * 60 * 1000).getTime());
         //продолжительность в милисекундах
-        const startDateTime = startDate.getTime();
+        // const startDateTime = startDate.getTime();
         const oneDayTime = 86400000;
 
         // console.log(new Date(startDate).getTime(), 'новая дата');
@@ -45,24 +51,65 @@ const EditHabit = (props) => {
         // const tempFinish = new Date(startDate).getTime() + new Date(countRepeatDays*24*60*60*1000).getTime();
         // console.log(new Date(tempFinish));
 
-        function createResults(num) {
-            function setStatusDays(date, arrRepeat) {
-                const evenNew = (el) => +el === date.getDay();
-                return arrRepeat.some(evenNew) ? 1 : 0;
+        //если сегодня больше чем финиш дата
+        
+
+        
+
+        function createResults(num, timeStartDate, repeatDaysName) {
+            if (num > 0){
+                function setStatusDays(date, arrRepeat) {
+                    const evenNew = (el) => +el === date.getDay();
+                    return arrRepeat.some(evenNew) ? 1 : 0;
+                }
+    
+    
+                let newArr = [];
+                let tempTime = 0;
+    
+                for (let i = 0; i < num; i++) {
+                    newArr[i] = { dateDay: timeStartDate + tempTime, status: setStatusDays(new Date(timeStartDate + tempTime), repeatDaysName) }
+                    tempTime += oneDayTime;
+                }
+                return newArr;
+            }else {
+                return null;
             }
-
-
-            let newArr = [];
-            let tempTime = 0;
-
-            for (let i = 0; i < num; i++) {
-                newArr[i] = { dateDay: startDateTime + tempTime, status: setStatusDays(new Date(startDateTime + tempTime), nameRepeatDays) }
-                tempTime += oneDayTime;
-            }
-            return newArr;
+            
         }
 
-        const results = createResults(countRepeatDays)
+       function updateResults(){
+        if ((new Date().getTime()/1000/60/60/24).toFixed(0) > (new Date(modalDataBase.finishDate).getTime()/1000/60/60/24).toFixed(0)){
+            let newStartDay = new Date(modalDataBase.finishDate).getTime();
+            let emptyCountDays = (new Date().getTime()/1000/60/60/24).toFixed(0) - (new Date(modalDataBase.finishDate).getTime()/1000/60/60/24).toFixed(0);
+            let oldResultsArray = modalDataBase.results;
+            console.log(oldResultsArray);
+            let emptyArrayResults = createResults(emptyCountDays,newStartDay, []);
+            console.log(emptyArrayResults);
+            let newCreateResultsArray = createResults(countRepeatDays,new Date().getTime(), nameRepeatDays);
+            console.log(newCreateResultsArray);
+            let newAddResults = [...oldResultsArray, ...emptyArrayResults, ...newCreateResultsArray]
+            return newAddResults
+            //если сегодня меньше чем финиш дата
+        } else{
+            // console.log(modalDataBase.results[0].dateDay);
+            let index = 0;
+            modalDataBase.results.forEach((item, i) => {
+                if ((item.dateDay/1000/60/60/24).toFixed(0) === ((new Date().getTime())/1000/60/60/24).toFixed(0)){
+                    index = i;
+                } 
+         
+            })
+            let oldResultsArray = modalDataBase.results.slice(0, index);
+            let newStartDay = new Date().getTime();
+            let addCount = modalDataBase.results.slice(11).length;
+            let newCreateResultsArray = createResults(countRepeatDays + addCount,newStartDay, nameRepeatDays);
+            let newAddResults = [...oldResultsArray, ...newCreateResultsArray]
+            return newAddResults
+        }
+       }
+
+        const results = updateResults()
         const newDataBaseItem = {
             nameHabit,
             countOfWeek,
@@ -72,20 +119,18 @@ const EditHabit = (props) => {
             countRepeatDays,
             results
         }
-        console.log(newDataBaseItem);
-        // newRequest.postResource(newDataBaseItem)
-        // props.renderAfterAdd()
-        // props.setOpenModalCreate(false)
+        // console.log(newDataBaseItem);
+        props.onUpdateDataBaseLoaded(newDataBaseItem, idReander)
+        props.renderAfterAdd()
+        props.setOpenModalEdit(false)
     }
 
 
 
-    /////////
+    ///////// переменные для отображения даты начала и конца
     const renderStartDate = new Date(modalDataBase.startDate).getFullYear() + '.' + (new Date(modalDataBase.startDate).getMonth() + 1) + "." + new Date(modalDataBase.startDate).getDate();
     const renderFinishDate = new Date(modalDataBase.finishDate).getFullYear() + '.' + (new Date(modalDataBase.finishDate).getMonth() + 1) + "." + new Date(modalDataBase.finishDate).getDate();
-    // console.log(renderStartDate.getFullYear() + '.' + (renderStartDate.getMonth() + 1) + "." + renderStartDate.getDate());
-    // console.log(renderStartDate);
-    
+   const daysLeft = Math.floor((new Date(modalDataBase.finishDate).getTime() - new Date().getTime())/1000/60/60/24);    
     ///////////
 
 
@@ -98,7 +143,7 @@ const EditHabit = (props) => {
                         name: modalDataBase.nameHabit,
                         countOfWeek: modalDataBase.countOfWeek,
                         repeatDays: modalDataBase.nameRepeatDays,
-                        startDate: new Date(modalDataBase.startDate),
+                        // startDate: new Date(modalDataBase.startDate),
                         countWeeks: 0
 
                     }}
@@ -106,8 +151,6 @@ const EditHabit = (props) => {
                     validationSchema={Yup.object({
                         name: Yup.string()
                             .min(2, 'Минимум 2 символа')
-                            .required('Обязательное поле нах'),
-                        startDate: Yup.string()
                             .required('Обязательное поле нах'),
                         repeatDays: Yup.array()
                             .min(numberOfDayPerWeek, "Минимум столько галочек")
@@ -202,6 +245,9 @@ const EditHabit = (props) => {
                                 <div className="form-add__habit-item ">
                                    <h3>Дата окончания: {renderFinishDate}</h3>
                                 </div>
+                                <div className="form-add__habit-item ">
+                                   <h3>Закончиться через: {daysLeft}</h3>
+                                </div>
 
                             </div>
                             <div className="form-add__habit-item add__habit-count__weeks">
@@ -219,7 +265,7 @@ const EditHabit = (props) => {
                                 <button type="submit"
                                     className='form-btn'
                                 //  disabled={isSubmitting}
-                                >Создать</button>
+                                >Сохранить изменения</button>
                                 <button className='my-btn' onClick={() => props.setOpenModalCreate(false)}>Закрыть</button>
                             </div>
                         </Form>
