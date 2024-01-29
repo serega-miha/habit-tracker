@@ -38,7 +38,7 @@ class JsonBin {
   //         );
   //     })
 
-  _url = 'http://localhost:3001/data';
+  _url = 'http://localhost:3333/data';
 
   getResource = async () => {
     let res = await fetch(this._url, {
@@ -75,7 +75,7 @@ class JsonBin {
 
   deleteResource = async (id) => {
     try {
-      const rawResponse = await fetch(`http://localhost:3001/data/${id}`, {
+      const rawResponse = await fetch(`http://localhost:3333/data/${id}`, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
@@ -86,7 +86,7 @@ class JsonBin {
       })
       const content = await rawResponse.json()
       
-      console.log(JSON.stringify(content));
+      // console.log(JSON.stringify(content));
     } catch (error){
       console.log(error);
     }
@@ -96,7 +96,7 @@ class JsonBin {
     try {
       // console.log(data);
       // console.log(id);
-      const rawResponse = await fetch(`http://localhost:3001/data/${id}`, {
+      const rawResponse = await fetch(`http://localhost:3333/data/${id}`, {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
