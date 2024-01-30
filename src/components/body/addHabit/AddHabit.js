@@ -1,28 +1,19 @@
 
-import YocReactDatePicker from '../calendar/Calendar';
+
 import './addHabit.scss';
 import JsonBin from '../../../service/request/JsonBin';
-import { Formik, Form, Field, useFormikContext, ErrorMessage } from 'formik';
-import { todayDate, countDaysOfMonth } from '../../../dataBase/daysMonths/daysAndMonths';
+import { Formik, Form, Field } from 'formik';
+
 import DatePickerCalenar from '../datePacker/DatePicker';
 import * as Yup from 'yup';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const AddHabit = (props) => {
     const [numberOfDayPerWeek, setNumberOfDayPerWeek] = useState(3);
 
-
-    // const modalBataBase = props.dataBase.filter(item => item.id === props.habitId)[0];
-    // console.log(modalBataBase);
-    // useEffect(() => {
-    //     console.log(numberOfDayPerWeek, 'now = ');
-    // }, [numberOfDayPerWeek])
-
     const newRequest = new JsonBin();
 
-
     const onSubmit = (values) => {
-
         //имя
         const nameHabit = values.name;
         //количество повторений в неделю //3
@@ -39,18 +30,11 @@ const AddHabit = (props) => {
         const startDateTime = startDate.getTime();
         const oneDayTime = 86400000;
 
-        // console.log(new Date(startDate).getTime(), 'новая дата');
-        // console.log(new Date(countRepeatDays*24*60*60*1000).getTime(), 'duration');
-        // const tempFinish = new Date(startDate).getTime() + new Date(countRepeatDays*24*60*60*1000).getTime();
-        // console.log(new Date(tempFinish));
-
         function createResults(num) {
             function setStatusDays(date, arrRepeat) {
                 const evenNew = (el) => +el === date.getDay();
                 return arrRepeat.some(evenNew) ? 1 : 0;
             }
-
-
             let newArr = [];
             let tempTime = 0;
 
@@ -229,35 +213,6 @@ const AddHabit = (props) => {
     )
 }
 
-// function ModalWindow(props) {
-//     const [showModal, setShowModal] = useState(false)
-
-
-//     if (showModal) {
-//         // console.log(props.dataBase);
-//         // console.log(props.habitId);  
-//     }
-
-//     const modalAdd = showModal ?
-//         <AddHabit
-//             showModal={showModal}
-//             onClose={setShowModal}
-//             dataBase={props.dataBase}
-//             habitId={props.habitId}
-//             renderAfterAdd={props.renderAfterAdd}
-//             nameSubmit={props.nameTrigger === 'Создать' ? 'Создать' : "Сохранить изменения"}
-//         />
-//         : null;
-//     return (
-//         <>
-//             {modalAdd}
-//             <button
-//                 type="button"
-//                 className="my-btn"
-//                 onClick={() => setShowModal(true)}>{props.nameTrigger}</button>
-//         </>
-//     )
-// }
 
 
 export default AddHabit;

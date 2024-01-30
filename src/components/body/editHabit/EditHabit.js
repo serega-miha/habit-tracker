@@ -1,34 +1,19 @@
 
 
 import './editHait.scss';
-import JsonBin from '../../../service/request/JsonBin';
-import { Formik, Form, Field, useFormikContext, ErrorMessage } from 'formik';
-import { todayDate, countDaysOfMonth } from '../../../dataBase/daysMonths/daysAndMonths';
-import DatePickerCalenar from '../datePacker/DatePicker';
+import { Formik, Form, Field } from 'formik';
+
 import * as Yup from 'yup';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
 const EditHabit = (props) => {
     const [idReander, setIdRender] = useState(props.idDataBase);
     const [numberOfDayPerWeek, setNumberOfDayPerWeek] = useState(3);
 
-
     const modalDataBase = props.dataBase.filter(item => item.id === props.idDataBase)[0];
 
-    useEffect(() => {
-            console.log(modalDataBase);
-            // console.log((new Date().getTime()/1000/60/60/24).toFixed(0), (new Date(modalDataBase.finishDate).getTime()/1000/60/60/24).toFixed(0));
-
-            // console.log((modalDataBase.results.slice(11).length));
-    }, [idReander])
-
-    const newRequest = new JsonBin();
-
-
-   
 
     function onSubmit(values){
-
         //имя
         const nameHabit = values.name;
         //количество повторений в неделю //3
@@ -43,18 +28,7 @@ const EditHabit = (props) => {
         const finishDate = (new Date().getTime()/1000/60/60/24).toFixed(0) > (new Date(modalDataBase.finishDate).getTime()/1000/60/60/24).toFixed(0) ? 
         new Date(new Date().getTime() + new Date(countRepeatDays * 24 * 60 * 60 * 1000).getTime()) : new Date(new Date(modalDataBase.finishDate).getTime() + new Date(countRepeatDays * 24 * 60 * 60 * 1000).getTime());
         //продолжительность в милисекундах
-        // const startDateTime = startDate.getTime();
         const oneDayTime = 86400000;
-
-        // console.log(new Date(startDate).getTime(), 'новая дата');
-        // console.log(new Date(countRepeatDays*24*60*60*1000).getTime(), 'duration');
-        // const tempFinish = new Date(startDate).getTime() + new Date(countRepeatDays*24*60*60*1000).getTime();
-        // console.log(new Date(tempFinish));
-
-        //если сегодня больше чем финиш дата
-        
-
-        
 
         function createResults(num, timeStartDate, repeatDaysName) {
             if (num > 0){
@@ -125,14 +99,11 @@ const EditHabit = (props) => {
         props.setOpenModalEdit(false)
     }
 
-
-
     ///////// переменные для отображения даты начала и конца
     const renderStartDate = new Date(modalDataBase.startDate).getFullYear() + '.' + (new Date(modalDataBase.startDate).getMonth() + 1) + "." + new Date(modalDataBase.startDate).getDate();
     const renderFinishDate = new Date(modalDataBase.finishDate).getFullYear() + '.' + (new Date(modalDataBase.finishDate).getMonth() + 1) + "." + new Date(modalDataBase.finishDate).getDate();
    const daysLeft = Math.floor((new Date(modalDataBase.finishDate).getTime() - new Date().getTime())/1000/60/60/24);    
     ///////////
-
 
     return (
        
@@ -143,7 +114,6 @@ const EditHabit = (props) => {
                         name: modalDataBase.nameHabit,
                         countOfWeek: modalDataBase.countOfWeek,
                         repeatDays: modalDataBase.nameRepeatDays,
-                        // startDate: new Date(modalDataBase.startDate),
                         countWeeks: 1
 
                     }}
@@ -187,8 +157,6 @@ const EditHabit = (props) => {
                                                 setNumberOfDayPerWeek(e.target.value)
                                             }
                                             }
-
-
                                         >
                                             <option className='select-option' value="1">1</option>
                                             <option className='select-option' value="2">2</option>
@@ -264,15 +232,12 @@ const EditHabit = (props) => {
                             <div className="form-submit">
                                 <button type="submit"
                                     className='form-btn'
-                                //  disabled={isSubmitting}
                                 >Сохранить изменения</button>
                                 <button className='my-btn' onClick={() => props.setOpenModalEdit(false)}>Закрыть</button>
                                
                             </div>
                         </Form>
                     )}
-
-
                 </Formik>
             </div>
       

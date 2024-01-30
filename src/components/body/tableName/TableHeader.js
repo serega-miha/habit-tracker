@@ -4,15 +4,10 @@ import { days, today } from '../../../dataBase/daysMonths/daysAndMonths';
 
 
 const TableHeader = (props) => {
-
-
     //количество дней в месяце
     const countDaysOfMonth = 32 - new Date(props.selectedFullYear, props.selectedMonth - 1, 32).getDate();
-
     //первый день в месяце
     const firstDayofMonth = new Date(props.selectedFullYear, props.selectedMonth - 1, 1).getDay();
-
-
     //создаем массив с днями и числами
     const createArr = (firstDay, daysOfMonth) => {
         let i = firstDay - 1;
@@ -48,17 +43,7 @@ const TableHeader = (props) => {
 
         )
     }
-
-    // let data = dataBaseOfHabits[0].results;
-    // console.log(data[2].status);
-
-
-
-
     const itemsDays = renderItems(createArr(firstDayofMonth, countDaysOfMonth))
-    
-
-
     return (
         <div className="habits__table-header">
             <div className="habits__row-name">

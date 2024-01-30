@@ -2,15 +2,12 @@ import './bodyBlock.scss'
 
 import AddHabit from './addHabit/AddHabit';
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink, Outlet } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import JsonBin from '../../service/request/JsonBin';
 import BlockTable from './BlockTable';
 import { monthsEng, monthRus, today } from '../../dataBase/daysMonths/daysAndMonths';
-import ModalWindow from './addHabit/AddHabit';
+
 import Modal from '../Modal/Modal';
-
-
-
 
 
 const BodyBlock = () => {
@@ -20,28 +17,28 @@ const BodyBlock = () => {
     const [nameSelectedMonth, setNameSelectedMonth] = useState('January')
     const [selectedFullYear, setSelectedFullYear] = useState("2024")
 
-//создал для создания модального окна
+    //создал для создания модального окна
     const [openModalCreate, setOpenModalCreate] = useState(false)
-    function renderModalWindow(bool){
+    function renderModalWindow(bool) {
         const modalCreateHabit = <Modal
-        active={openModalCreate}
-        setActive={setOpenModalCreate}
-    >
-        <AddHabit
-            renderAfterAdd={renderAfterAdd}
-            setOpenModalCreate={setOpenModalCreate}
-        />
-    </Modal>
-    if (bool) {
-        return modalCreateHabit
-    }else{
-        return null
+            active={openModalCreate}
+            setActive={setOpenModalCreate}
+        >
+            <AddHabit
+                renderAfterAdd={renderAfterAdd}
+                setOpenModalCreate={setOpenModalCreate}
+            />
+        </Modal>
+        if (bool) {
+            return modalCreateHabit
+        } else {
+            return null
+        }
     }
-    }
-    
-//сделал чтобы модальное окно исчезало из ДОМ дерева, когда его закрываешь!
+
+    //сделал чтобы модальное окно исчезало из ДОМ дерева, когда его закрываешь!
     useEffect(() => {
-        renderModalWindow(openModalCreate) 
+        renderModalWindow(openModalCreate)
     }, [])
 
 
@@ -53,8 +50,6 @@ const BodyBlock = () => {
 
     useEffect(() => {
         onRequest();
-
-        // console.log(dataBase[0]); 
     }, [count])
 
     const onRequest = () => {
@@ -65,12 +60,9 @@ const BodyBlock = () => {
 
     const onDataBaseLoaded = (dataBase) => {
         setDataBase(dataBase)
-        // request.putResourse(dataBase, numDataBase);
     }
 
     const onUpdateDataBaseLoaded = (dataBaseItem, numDataBase) => {
-        // console.log(dataBaseItem);
-        // console.log(numDataBase);
         request.putResourse(dataBaseItem, numDataBase);
     }
 
@@ -80,18 +72,16 @@ const BodyBlock = () => {
     }
 
     const linkMonths = monthsEng.map((item, i) => {
-
         if (today.getMonth() + 1 === i) {
-
         }
-
         return (
             <li
                 className="item__month"
+                key={i}
             >
                 <NavLink
+                    
                     to={"/" + item}
-                    // className="NavLink__month"
                     onClick={() => updateMonth(i + 1, item)}
                     className={({ isActive }) =>
                         isActive ? "NavLink__month active" : "NavLink__month"
@@ -113,7 +103,7 @@ const BodyBlock = () => {
 
                 {linkMonths}
             </ul>
-            {/* <Outlet/> */}
+
             <Routes>
                 <Route path={'/' + nameSelectedMonth}
                     element={<BlockTable
@@ -130,14 +120,8 @@ const BodyBlock = () => {
 
             </Routes>
             <div className="create-habit">
-                {/* <ModalWindow
-                        nameTrigger='Создать'
-                        renderAfterAdd={renderAfterAdd}
-                        // dataBase={dataBase}
-                        
-                        /> */}
                 <button className='my-btn' onClick={() => setOpenModalCreate(true)}>Создать</button>
-                {renderModalWindow(openModalCreate)} 
+                {renderModalWindow(openModalCreate)}
             </div>
         </div>
 
